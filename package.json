@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "morens-blog",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Moren's blog",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Moren Yang <morenyang88@gmail.com>",
   "dependencies": {
     "gatsby": "^2.13.57",
     "gatsby-image": "^2.2.8",
@@ -19,6 +19,8 @@
     "react-helmet": "^5.2.1"
   },
   "devDependencies": {
+    "husky": "^3.0.3",
+    "lint-staged": "^9.2.1",
     "prettier": "^1.18.2"
   },
   "keywords": [
@@ -29,15 +31,27 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "format:scripts": "prettier --write \"**/*.{js,jsx,json,scss}\"",
     "start": "yarn run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,json,scss}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/morenyang/blog-revamp"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/morenyang/blog-revamp/issues"
   }
 }
