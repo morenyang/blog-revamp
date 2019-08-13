@@ -2,14 +2,13 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 
-const PostPageTemplate = ({ data, context }) => {
-  console.log(data)
+const ArticlesPageTemplate = ({ data, pageContext }) => {
   const { edges } = data.allMarkdownRemark
 
   return (
     <Layout>
       {edges.map(edge => (
-        <h1>
+        <h1 key={edge.node.id}>
           {edge.node.frontmatter.title}
           <span>{edge.node.frontmatter.description}</span>
         </h1>
@@ -18,18 +17,19 @@ const PostPageTemplate = ({ data, context }) => {
   )
 }
 
-export default PostPageTemplate
+export default ArticlesPageTemplate
 
 export const query = graphql`
   query PostPageTemplate($pageSize: Int!, $postsOffset: Int!) {
     allMarkdownRemark(
       limit: $pageSize
       skip: $postsOffset
-      filter: { fields: { collection: { eq: "post" } } }
+      filter: { fields: { collection: { eq: "article" } } }
       sort: { order: DESC, fields: [frontmatter___date] }
     ) {
       edges {
         node {
+          id
           frontmatter {
             title
             description
