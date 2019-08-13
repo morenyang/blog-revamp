@@ -9,7 +9,10 @@ const PostPageTemplate = ({ data, context }) => {
   return (
     <Layout>
       {edges.map(edge => (
-        <h1>{edge.node.frontmatter.title}</h1>
+        <h1>
+          {edge.node.frontmatter.title}
+          <span>{edge.node.frontmatter.description}</span>
+        </h1>
       ))}
     </Layout>
   )
@@ -22,14 +25,13 @@ export const query = graphql`
     allMarkdownRemark(
       limit: $pageSize
       skip: $postsOffset
-      filter: {}
+      filter: { fields: { collection: { eq: "post" } } }
       sort: { order: DESC, fields: [frontmatter___date] }
     ) {
       edges {
         node {
           frontmatter {
             title
-            date
             description
           }
         }

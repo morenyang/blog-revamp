@@ -6,16 +6,16 @@ const siteConfig = require('../site-config')
 const createPostPage = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const posts = await graphql(`
+  const allMarkdownCount = await graphql(`
     {
-      allMarkdownRemark(filter: { frontmatter: {} }) {
+      allMarkdownRemark(filter: { fields: { collection: { eq: "post" } } }) {
         totalCount
       }
     }
   `)
   const postPerPage = siteConfig.postPerPage
   const totalPages = Math.ceil(
-    posts.data.allMarkdownRemark.totalCount / postPerPage
+    allMarkdownCount.data.allMarkdownRemark.totalCount / postPerPage
   )
 
   const getPath = currentPage => {
@@ -35,7 +35,6 @@ const createPostPage = async ({ graphql, actions }) => {
   }
 
   const createPostPage = currentPage => {
-    console.log(getContext(currentPage))
     createPage({
       path: getPath(currentPage),
       component: path.resolve(`./src/templates/PostPageTemplate.js`),
