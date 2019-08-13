@@ -19,14 +19,14 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `article`,
-        path: `${__dirname}/articles`,
+        path: `${__dirname}/content/articles`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `asserts`,
-        path: `${__dirname}/content/asserts`,
+        name: `assets`,
+        path: `${__dirname}/content/assets`,
       },
     },
     {
@@ -61,7 +61,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#ffffff`,
         display: `standalone`,
-        icon: `content/asserts/favicon.png`, // This path is relative to the root of the site.
+        icon: `content/assets/favicon.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
