@@ -29,19 +29,21 @@
   "devDependencies": {
     "husky": "^3.0.3",
     "lint-staged": "^9.2.1",
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "rimraf": "^2.7.0"
   },
   "keywords": [
     "gatsby"
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
+    "build": "yarn run clean && gatsby build",
+    "develop": "yarn run clean && gatsby develop",
+    "clean": "rimraf .cache public",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "format:scripts": "prettier --write \"**/*.{js,jsx,json,scss}\"",
     "start": "yarn run develop",
-    "serve": "gatsby serve",
+    "serve": "yarn run clean && gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "husky": {
