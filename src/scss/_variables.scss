@@ -2,3 +2,18 @@ $font-family-sans-serif: -apple-system, BlinkMacSystemFont, 'PingFang SC',
   'Segoe UI', 'Roboto', 'Noto Sans SC', 'Helvetica Neue', Arial, 'Noto Sans',
   sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
   'Noto Color Emoji';
+
+// colors
+$black: #333;
+$secondary: #747474;
+
+$primary: $black;
+
+// wrapper
+$wrapper-max-width: 1440px;
+
+// gutters
+$gutter-base: 12px;
+$gutter-small: $gutter-base;
+$gutter: $gutter-base * 2;
+$gutter-lg: $gutter-base * 4;

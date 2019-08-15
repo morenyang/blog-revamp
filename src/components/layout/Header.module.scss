@@ -1,0 +1,29 @@
+@import '../../scss/variables';
+$header-height: 60px;
+
+.headerWrapper {
+  width: 100%;
+}
+
+.siteHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: $wrapper-max-width;
+  margin: 0 auto;
+  height: $header-height;
+  padding: 0 $gutter-lg;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.headerBrand {
+  .headerTitle {
+    font-size: 20px;
+    line-height: 40px;
+    font-weight: 700;
+    margin: 0;
+  }
+}
