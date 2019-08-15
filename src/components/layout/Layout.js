@@ -9,14 +9,23 @@ const Layout = props => {
       site {
         siteMetadata {
           title
+          headerLinks {
+            name
+            path
+          }
         }
       }
     }
   `)
 
+  const { siteMetadata } = data.site
+
   return (
     <>
-      <Header title={data.site.siteMetadata.title} />
+      <Header
+        title={siteMetadata.title}
+        headerLinks={siteMetadata.headerLinks}
+      />
       <main>{props.children}</main>
     </>
   )

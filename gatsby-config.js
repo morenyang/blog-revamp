@@ -5,6 +5,7 @@ module.exports = {
     title: siteConfig.title,
     description: siteConfig.description,
     author: siteConfig.author,
+    headerLinks: siteConfig.headerLinks,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

@@ -6,4 +6,6 @@ module.exports = {
   author: `Moren Yang`,
 
   postPerPage: 20,
+
+  headerLinks: [{ name: 'Articles', path: '/articles' }],
 }

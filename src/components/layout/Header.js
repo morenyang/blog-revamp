@@ -12,6 +12,15 @@ const Header = ({ title, headerLinks }) => {
             <div className={styles.headerTitle}>{title}</div>
           </Link>
         </div>
+        <nav className={styles.headerNavMainWrapper}>
+          <ul className={styles.headerNavMain}>
+            {headerLinks.map((link, index) => (
+              <li className={styles.headerNavItem} key={index}>
+                <Link to={link.path}>{link.name}</Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </header>
     </div>
   )
@@ -22,8 +31,7 @@ Header.propTypes = {
   headerLinks: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
-      link: PropTypes.string.isRequired,
-      match: PropTypes.string,
+      path: PropTypes.string.isRequired,
     })
   ),
 }
