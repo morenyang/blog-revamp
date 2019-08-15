@@ -5,3 +5,5 @@
  */
 
 // You can delete this file if you're not using it
+require('typeface-noto-sans-sc')
+require('./src/scss/reboot.scss')
