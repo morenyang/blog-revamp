@@ -1,11 +1,16 @@
 @import '../../scss/variables';
 
-.footer {
+.footerWrapper {
   margin: $gutter auto 0;
-  padding: $gutter $gutter-lg;
-  border-top: 1px solid $light-gray;
   width: 100%;
   max-width: $wrapper-max-width;
+}
+
+.footer {
+  margin: 0 $gutter-lg;
+  padding: $gutter;
+  border-top: 1px solid $light-gray;
+  display: flex;
   font-size: 18px;
 }
 

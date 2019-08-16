@@ -1,12 +1,13 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../components/layout/index'
+import { Layout, SEO } from '../components/framework'
 
 const ArticlesPageTemplate = ({ data, pageContext }) => {
   const { edges } = data.allMarkdownRemark
 
   return (
     <Layout>
+      <SEO title={'Articles'} />
       {edges.map(edge => (
         <h1 key={edge.node.id}>
           {edge.node.frontmatter.title}
