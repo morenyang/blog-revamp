@@ -1,0 +1,21 @@
+@import '../scss/variables';
+
+.pageHeader {
+  margin-bottom: $gutter;
+
+  h1 {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 42px;
+    margin: 0;
+    color: $black;
+  }
+
+  h3 {
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 36px;
+    color: $secondary;
+    margin: 0;
+  }
+}

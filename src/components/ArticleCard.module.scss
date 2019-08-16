@@ -1,0 +1,19 @@
+@import '../scss/variables';
+
+.articleCard {
+  h2,
+  h3 {
+    font-size: 32px;
+    line-height: 40px;
+    margin: 0;
+    display: inline;
+  }
+  h2 {
+    color: $black;
+    font-weight: 700;
+  }
+  h3 {
+    color: $secondary;
+    font-weight: 100;
+  }
+}

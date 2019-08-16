@@ -1,19 +1,30 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { Layout, SEO } from '../components/framework'
+import PageHeader from '../components/PageHeader'
+import ArticleList from '../components/ArticleList'
 
 const ArticlesPageTemplate = ({ data, pageContext }) => {
   const { edges } = data.allMarkdownRemark
 
+  const articles = edges.map(({ node }) => {
+    const { id, frontmatter } = node
+    const { title, description } = frontmatter
+
+    return {
+      id,
+      title,
+      description,
+    }
+  })
+
   return (
     <Layout>
       <SEO title={'Articles'} />
-      {edges.map(edge => (
-        <h1 key={edge.node.id}>
-          {edge.node.frontmatter.title}
-          <span>{edge.node.frontmatter.description}</span>
-        </h1>
-      ))}
+      <section>
+        <PageHeader title={'Articles'} />
+        <ArticleList articles={articles} />
+      </section>
     </Layout>
   )
 }
