@@ -2,8 +2,20 @@
 
 .footer {
   margin: $gutter auto 0;
-  padding: $gutter 0;
+  padding: $gutter $gutter-lg;
   border-top: 1px solid $light-gray;
   width: 100%;
   max-width: $wrapper-max-width;
+  font-size: 18px;
+}
+
+.footerCopyright,
+.footerLinks {
+  margin-top: $gutter-small;
+  margin-bottom: $gutter;
+  font-weight: 300;
+}
+
+.footerCopyright {
+  color: $secondary;
 }

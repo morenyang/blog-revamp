@@ -1,9 +1,9 @@
 'use strict'
 
 module.exports = {
-  title: `Moren's Blog`,
+  title: `Moren's`,
   description: `Nice to meet you, again. `,
-  author: `Moren Yang`,
+  author: `MorenYANG`,
 
   postPerPage: 20,
 

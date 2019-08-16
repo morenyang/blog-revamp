@@ -11,6 +11,7 @@ const Layout = props => {
       site {
         siteMetadata {
           title
+          author
           headerLinks {
             name
             path
@@ -31,7 +32,7 @@ const Layout = props => {
       <div className={styles.mainWrapper}>
         <main>{props.children}</main>
       </div>
-      <Footer />
+      <Footer author={siteMetadata.author} />
     </div>
   )
 }
