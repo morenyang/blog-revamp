@@ -1,14 +1,31 @@
+const { createFilePath } = require('gatsby-source-filesystem')
+
 const isNodeMarkdown = node => node.internal.type === 'MarkdownRemark'
 
 const onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
+  const creatorArgs = {
+    getNode,
+    node,
+    createNodeField,
+  }
 
   if (isNodeMarkdown(node)) {
-    createFieldByParentSourceInstanceName({ getNode, node, createNodeField })
+    createCollectionFieldByParentSourceInstanceName(creatorArgs)
+    createSlugField(creatorArgs)
   }
 }
 
-const createFieldByParentSourceInstanceName = ({
+const createSlugField = ({ getNode, node, createNodeField }) => {
+  const slug = createFilePath({ node, getNode })
+  createNodeField({
+    node,
+    name: `slug`,
+    value: slug,
+  })
+}
+
+const createCollectionFieldByParentSourceInstanceName = ({
   getNode,
   node,
   createNodeField,
