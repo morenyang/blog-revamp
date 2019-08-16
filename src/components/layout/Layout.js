@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import Header from './Header'
+import styles from './Layout.module.scss'
+import Footer from './Footer'
 
 const Layout = props => {
   const data = useStaticQuery(graphql`
@@ -21,13 +23,16 @@ const Layout = props => {
   const { siteMetadata } = data.site
 
   return (
-    <>
+    <div className={styles.flexWrapper}>
       <Header
         title={siteMetadata.title}
         headerLinks={siteMetadata.headerLinks}
       />
-      <main>{props.children}</main>
-    </>
+      <div className={styles.mainWrapper}>
+        <main>{props.children}</main>
+      </div>
+      <Footer />
+    </div>
   )
 }
 

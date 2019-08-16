@@ -1,0 +1,15 @@
+@import '../../scss/variables';
+
+.flexWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.mainWrapper {
+  flex: 1;
+  width: 100%;
+  max-width: $wrapper-max-width;
+  margin: 0 auto;
+  padding: $gutter-lg $gutter-lg $gutter;
+}

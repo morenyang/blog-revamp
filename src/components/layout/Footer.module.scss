@@ -1,0 +1,9 @@
+@import '../../scss/variables';
+
+.footer {
+  margin: $gutter auto 0;
+  padding: $gutter 0;
+  border-top: 1px solid $light-gray;
+  width: 100%;
+  max-width: $wrapper-max-width;
+}
