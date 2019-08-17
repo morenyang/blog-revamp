@@ -8,13 +8,11 @@ const ArticlesPageTemplate = ({ data, pageContext }) => {
   const { edges } = data.allMarkdownRemark
 
   const articles = edges.map(({ node }) => {
-    const { id, frontmatter } = node
-    const { title, description } = frontmatter
+    const { frontmatter, ...rest } = node
 
     return {
-      id,
-      title,
-      description,
+      ...rest,
+      ...frontmatter,
     }
   })
 
@@ -32,7 +30,7 @@ const ArticlesPageTemplate = ({ data, pageContext }) => {
 export default ArticlesPageTemplate
 
 export const query = graphql`
-  query PostPageTemplate($pageSize: Int!, $postsOffset: Int!) {
+  query ArticlePageTemplate($pageSize: Int!, $postsOffset: Int!) {
     allMarkdownRemark(
       limit: $pageSize
       skip: $postsOffset
@@ -42,9 +40,20 @@ export const query = graphql`
       edges {
         node {
           id
+          fields {
+            slug
+          }
           frontmatter {
             title
             description
+            date
+            coverImage {
+              childImageSharp {
+                fluid(maxWidth: 800, toFormat: WEBP) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }

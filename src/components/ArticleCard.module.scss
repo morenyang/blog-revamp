@@ -1,10 +1,31 @@
 @import '../scss/variables';
 
 .articleCard {
+  width: 33.33%;
+  flex: 0 0 33.33%;
+  padding: $gutter;
+  margin-bottom: $gutter-lg;
+  display: flex;
+  flex-direction: column;
+
+  &:nth-child(3n + 2),
+  &:nth-child(3n) {
+    padding-left: $gutter - 1;
+    border-left: 1px solid $light-gray;
+  }
+}
+
+.coverImageWrapper {
+  margin-bottom: $gutter;
+}
+
+.cardTitle {
+  flex: 1;
+  margin-bottom: $gutter;
   h2,
   h3 {
-    font-size: 32px;
-    line-height: 40px;
+    font-size: 30px;
+    line-height: 1.2;
     margin: 0;
     display: inline;
   }
@@ -16,4 +37,18 @@
     color: $secondary;
     font-weight: 100;
   }
+
+  &:hover {
+    text-decoration: none;
+    h2,
+    h3 {
+      border-bottom: 2px solid $black;
+    }
+  }
+}
+
+.meta {
+  font-size: 13px;
+  color: $secondary;
+  font-weight: 300;
 }

@@ -2,5 +2,8 @@
 
 .articleList {
   margin-top: $gutter;
+  margin-left: -$gutter;
+  margin-right: -$gutter;
   display: flex;
+  flex-wrap: wrap;
 }

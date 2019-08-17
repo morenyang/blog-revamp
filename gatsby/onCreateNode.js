@@ -1,7 +1,6 @@
 const { createFilePath } = require('gatsby-source-filesystem')
 
 const isNodeMarkdown = node => node.internal.type === 'MarkdownRemark'
-
 const onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
   const creatorArgs = {
@@ -13,6 +12,7 @@ const onCreateNode = ({ node, actions, getNode }) => {
   if (isNodeMarkdown(node)) {
     createCollectionFieldByParentSourceInstanceName(creatorArgs)
     createSlugField(creatorArgs)
+    createCoverField(creatorArgs)
   }
 }
 
@@ -22,6 +22,15 @@ const createSlugField = ({ getNode, node, createNodeField }) => {
     node,
     name: `slug`,
     value: slug,
+  })
+}
+
+function createCoverField({ node, createNodeField }) {
+  const coverImage = node.frontmatter.coverImage
+  createNodeField({
+    node: node,
+    name: `coverImage`,
+    value: coverImage,
   })
 }
 

@@ -1,7 +1,8 @@
 ---
-title: Hello World
+title: 你好，世界
 date: "2019-08-12T05:16:31.671Z"
 description: "Nice to meet you, again"
+coverImage: ./cover.jpg
 ---
 
 Nice to meet you, again!
