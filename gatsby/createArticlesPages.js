@@ -3,7 +3,7 @@
 const path = require('path')
 const siteConfig = require('../site-config')
 
-const postPerPage = siteConfig.postPerPage || 20
+const postPerPage = siteConfig.postPerPage || 60
 
 const getPath = currentPage => {
   return `/articles/${currentPage++ || ``}`
@@ -40,7 +40,7 @@ const createArticlesPage = ({ createPage, currentPage, totalPages }) => {
   })
 }
 
-const createPostPage = async ({ graphql, actions }) => {
+const createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const totalPages = await getTotalPages(graphql)
@@ -50,4 +50,4 @@ const createPostPage = async ({ graphql, actions }) => {
   }
 }
 
-module.exports = createPostPage
+module.exports = createPages
