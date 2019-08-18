@@ -34,8 +34,6 @@ const getPath = slug => {
 }
 
 const createArticlePage = (createPage, node) => {
-  console.log(node)
-  console.log(node.fields.slug)
   createPage({
     path: getPath(node.fields.slug),
     component: path.resolve(`./src/templates/ArticleContentPageTemplate.js`),

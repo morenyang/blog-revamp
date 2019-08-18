@@ -8,7 +8,7 @@
 .titleBar {
   padding: ($gutter + $gutter-small);
   background: #fff;
-  flex: 0 0 61.8%;
+  flex: 0 0 62%;
   margin-left: ($gutter-lg * 2);
   margin-top: $gutter-lg;
 
@@ -61,7 +61,8 @@
   & > h5,
   & > h6,
   & > ul,
-  & > ol {
+  & > ol,
+  & > div {
     width: calc(62% - (#{$gutter-lg} * 2));
     margin-right: $gutter-lg * 4;
     @include link();
@@ -94,9 +95,11 @@
   & > :global(.gatsby-highlight) {
     margin-bottom: $gutter + $gutter-small;
     font-size: 16px;
+
     pre {
       margin-bottom: 0;
     }
+
     code[class*='language-'],
     pre[class*='language-'] {
       font-family: $font-family-monospace;
@@ -135,4 +138,17 @@
       margin-bottom: 0;
     }
   }
+
+  & > :global(.gatsby-resp-image-wrapper) {
+    max-width: 62vw !important;
+    margin-right: $gutter-lg * 3 !important;
+    margin-bottom: $gutter-lg + $gutter-small;
+  }
+}
+
+.meta {
+  margin-top: $gutter;
+  font-weight: 300;
+  color: $secondary;
+  font-size: 13px;
 }

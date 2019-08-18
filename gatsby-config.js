@@ -34,10 +34,17 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          `gatsby-remark-unwrap-images`,
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 1920,
+              maxWidth: 1440,
+              linkImagesToOriginal: false,
+              quality: 100,
+              withWebp: true,
+              wrapperStyle: fluidResult => {
+                return `width: ${fluidResult.presentationWidth}px; height: auto;`
+              },
             },
           },
           {

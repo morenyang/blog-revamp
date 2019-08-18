@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styles from './ArticleContent.module.scss'
 import CoverImage from './CoverImage'
 import classnames from 'classnames'
+import moment from 'moment'
 
 const ArticleContent = ({ article }) => {
   const { coverImage } = article
@@ -22,6 +23,9 @@ const ArticleContent = ({ article }) => {
         >
           <h2>{article.title}</h2>
           <h3>{article.description}</h3>
+          <div className={styles.meta}>
+            {moment(article.date).format('MMMM DD, YYYY')}
+          </div>
         </div>
       </div>
       <div className={styles.articleContent}>
