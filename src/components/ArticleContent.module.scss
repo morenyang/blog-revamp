@@ -1,0 +1,138 @@
+@import '../scss/variables';
+
+.titleBarWrapper {
+  padding: 0 $gutter-lg;
+  display: flex;
+}
+
+.titleBar {
+  padding: ($gutter + $gutter-small);
+  background: #fff;
+  flex: 0 0 61.8%;
+  margin-left: ($gutter-lg * 2);
+  margin-top: $gutter-lg;
+
+  &.widthCoverImage {
+    margin-top: -($gutter-lg + $gutter-small);
+  }
+
+  h2,
+  h3 {
+    font-size: 36px;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  h2 {
+    color: $black;
+    font-weight: 700;
+  }
+
+  h3 {
+    color: $secondary;
+    font-weight: 100;
+  }
+}
+
+.articleContent {
+  padding: $gutter $gutter-lg;
+}
+
+.articleContentInner {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+
+  @mixin link {
+    a {
+      text-decoration: $blue solid underline;
+
+      &:hover {
+        color: $blue;
+      }
+    }
+  }
+
+  & > p,
+  & > h1,
+  & > h2,
+  & > h3,
+  & > h4,
+  & > h5,
+  & > h6,
+  & > ul,
+  & > ol {
+    width: calc(62% - (#{$gutter-lg} * 2));
+    margin-right: $gutter-lg * 4;
+    @include link();
+  }
+
+  & > blockquote,
+  & > :global(.gatsby-highlight) {
+    width: 62%;
+    margin-right: $gutter-lg * 3;
+  }
+
+  & > p,
+  & > ul,
+  & > ol,
+  & > blockquote {
+    font-family: $font-family-serif;
+    font-size: 19px;
+    line-height: 36px;
+    margin-bottom: $gutter + $gutter-small;
+  }
+
+  & > blockquote {
+    font-size: 20px;
+    font-style: italic;
+    line-height: 32px;
+    font-weight: 300;
+    color: $secondary;
+  }
+
+  & > :global(.gatsby-highlight) {
+    margin-bottom: $gutter + $gutter-small;
+    font-size: 16px;
+    pre {
+      margin-bottom: 0;
+    }
+    code[class*='language-'],
+    pre[class*='language-'] {
+      font-family: $font-family-monospace;
+    }
+  }
+
+  & > h1,
+  & > h2,
+  & > h3,
+  & > h4,
+  & > h5,
+  & > h6 {
+    font-weight: 700;
+    color: $black;
+    line-height: 36px;
+    margin-bottom: $gutter + $gutter-small;
+  }
+
+  & > h1,
+  & > h2 {
+    font-size: 28px;
+  }
+
+  & > h3,
+  & > h4,
+  & > h5,
+  & > h6 {
+    font-size: 24px;
+  }
+
+  ul,
+  ol {
+    padding-left: $gutter;
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+}

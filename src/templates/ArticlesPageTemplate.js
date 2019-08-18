@@ -30,7 +30,7 @@ const ArticlesPageTemplate = ({ data, pageContext }) => {
 export default ArticlesPageTemplate
 
 export const query = graphql`
-  query ArticlePageTemplate($pageSize: Int!, $postsOffset: Int!) {
+  query ArticlesPage($pageSize: Int!, $postsOffset: Int!) {
     allMarkdownRemark(
       limit: $pageSize
       skip: $postsOffset

@@ -25,27 +25,33 @@ const getArticleNodes = async graphql => {
     `
   )
 
-  const {edges} = result.data.allMarkdownRemark
-  return edges.map(({node}) => node);
-};
+  const { edges } = result.data.allMarkdownRemark
+  return edges.map(({ node }) => node)
+}
+
+const getPath = slug => {
+  return `/articles/${slug}`.replace(/\/\//g, '/')
+}
 
 const createArticlePage = (createPage, node) => {
+  console.log(node)
+  console.log(node.fields.slug)
   createPage({
-    path: `/articles/${node.fields.slug}`,
+    path: getPath(node.fields.slug),
     component: path.resolve(`./src/templates/ArticleContentPageTemplate.js`),
     context: {
       id: node.id,
     },
   })
-};
+}
 
 const createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const nodes = await getArticleNodes(graphql);
+  const nodes = await getArticleNodes(graphql)
 
   nodes.forEach(node => {
-    createArticlePage(createPage, node);
+    createArticlePage(createPage, node)
   })
 }
 

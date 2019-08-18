@@ -4,8 +4,9 @@ import { graphql, useStaticQuery } from 'gatsby'
 import Header from './Header'
 import styles from './Layout.module.scss'
 import Footer from './Footer'
+import classnames from 'classnames'
 
-const Layout = props => {
+const Layout = ({ children, className }) => {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -29,18 +30,21 @@ const Layout = props => {
         title={siteMetadata.title}
         headerLinks={siteMetadata.headerLinks}
       />
-      <div className={styles.mainWrapper}>
-        <main>{props.children}</main>
+      <div className={classnames(styles.mainWrapper, className)}>
+        <main>{children}</main>
       </div>
       <Footer author={siteMetadata.author} />
     </div>
   )
 }
 
-const propTypes = {
+Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
 }
 
-Layout.propTypes = propTypes
+Layout.defaultProps = {
+  className: 'site-main',
+}
 
 export default Layout

@@ -3,11 +3,20 @@ $font-family-sans-serif: -apple-system, BlinkMacSystemFont, 'Roboto',
   'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
   'Segoe UI Symbol', 'Noto Color Emoji';
 
+$font-family-serif: 'Source Serif Pro', Georgia, 'Times New Roman',
+  -apple-system, BlinkMacSystemFont, serif, 'Apple Color Emoji',
+  'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+$font-family-monospace: 'Source Code Pro', SFMono-Regular, Menlo, Monaco,
+  Consolas, 'Liberation Mono', 'Courier New', monospace !default;
+
 // colors
 $black: #333;
 $secondary: #747474;
 $gray: #989898;
 $light-gray: #e8e8e8;
+
+$blue: #0052cc;
 
 $primary: $black;
 

@@ -3,6 +3,10 @@ $header-height: 60px;
 
 .headerWrapper {
   width: 100%;
+  ol,
+  ul {
+    list-style: none;
+  }
 }
 
 .siteHeader {
