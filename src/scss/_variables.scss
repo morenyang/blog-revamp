@@ -28,3 +28,12 @@ $gutter-base: 12px;
 $gutter-small: $gutter-base;
 $gutter: $gutter-base * 2;
 $gutter-lg: $gutter-base * 4;
+
+// breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+) !default;

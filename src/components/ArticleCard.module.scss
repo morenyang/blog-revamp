@@ -1,4 +1,5 @@
 @import '../scss/variables';
+@import '../scss/mixins';
 
 .articleCard {
   width: 33.33%;
@@ -8,10 +9,31 @@
   display: flex;
   flex-direction: column;
 
-  &:nth-child(3n + 2),
-  &:nth-child(3n) {
-    padding-left: $gutter - 1;
-    border-left: 1px solid $light-gray;
+  @mixin apply-not-first-child($n) {
+    @if $n > 1 {
+      @for $i from 2 through $n {
+        &:not(:nth-child(#{$n}n + 1)) {
+          @content;
+        }
+      }
+    }
+  }
+
+  @mixin apply-border($n) {
+    @include apply-not-first-child($n) {
+      padding-left: $gutter - 1;
+      border-left: 1px solid $light-gray;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    @include apply-border(3);
+  }
+
+  @include media-breakpoint-down(md) {
+    width: 50%;
+    flex: 0 0 50%;
+    @include apply-border(2);
   }
 }
 
@@ -22,6 +44,7 @@
 .cardTitle {
   flex: 1;
   margin-bottom: $gutter;
+
   h2,
   h3 {
     font-size: 30px;
@@ -29,10 +52,12 @@
     margin: 0;
     display: inline;
   }
+
   h2 {
     color: $black;
     font-weight: 700;
   }
+
   h3 {
     color: $secondary;
     font-weight: 100;
@@ -40,6 +65,7 @@
 
   &:hover {
     text-decoration: none;
+
     h2,
     h3 {
       border-bottom: 2px solid $black;
