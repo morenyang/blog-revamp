@@ -4,10 +4,13 @@ import styles from './ArticleCard.module.scss'
 import CoverImage from './CoverImage'
 import { Link } from 'gatsby'
 import moment from 'moment'
+import routerHelper from '../utils/routerHelper'
+
+const getPath = routerHelper.getPathBySlugFactory(`articles`)
 
 const ArticleCard = ({ article }) => {
   const { title, description, fields, date } = article
-  const articleUrl = `/articles/${fields.slug}`
+  const articleUrl = getPath(fields.slug)
   return (
     <article className={styles.articleCard} id={`article-${article.id}`}>
       {article.coverImage && (

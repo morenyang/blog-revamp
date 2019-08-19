@@ -1,0 +1,33 @@
+@import '../scss/variables';
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.paginationBtnWrapper + .paginationBtnWrapper {
+  margin-left: $gutter;
+}
+
+.paginationBtn {
+  padding: $gutter-small * 1.25 $gutter;
+  border: 1px solid transparent;
+  color: 1px solid $black;
+  background: #fff;
+  border-radius: 2px;
+  font-size: 16px;
+  line-height: 24px;
+  &:hover {
+    border-color: black;
+  }
+
+  &.main {
+    background: $black;
+    color: #fff;
+    border-color: $black;
+    &:hover {
+      border-color: #fff;
+    }
+  }
+}

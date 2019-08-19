@@ -1,5 +1,6 @@
 'use strict'
 const path = require('path')
+const { getPathBySlugFactory } = require('../router-helper')
 
 const getArticleNodes = async graphql => {
   const result = await graphql(
@@ -29,9 +30,7 @@ const getArticleNodes = async graphql => {
   return edges.map(({ node }) => node)
 }
 
-const getPath = slug => {
-  return `/articles/${slug}`.replace(/\/\//g, '/')
-}
+const getPath = getPathBySlugFactory(`articles`)
 
 const createArticlePage = (createPage, node) => {
   createPage({

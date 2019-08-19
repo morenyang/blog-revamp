@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import { Layout, SEO } from '../components/framework'
 import PageHeader from '../components/PageHeader'
 import ArticleList from '../components/ArticleList'
+import Pagination from '../components/Pagination'
 
 const ArticlesPageTemplate = ({ data, pageContext }) => {
   const { edges } = data.allMarkdownRemark
@@ -16,12 +17,15 @@ const ArticlesPageTemplate = ({ data, pageContext }) => {
     }
   })
 
+  console.log(pageContext)
+
   return (
     <Layout>
       <SEO title={'Articles'} />
       <section>
         <PageHeader title={'Articles'} />
         <ArticleList articles={articles} />
+        <Pagination {...pageContext} />
       </section>
     </Layout>
   )

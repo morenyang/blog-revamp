@@ -5,7 +5,7 @@ module.exports = {
   description: `Nice to meet you, again. `,
   author: `MorenYANG`,
 
-  postPerPage: 20,
+  postPerPage: 30,
 
   headerLinks: [{ name: 'Articles', path: '/articles' }],
 }

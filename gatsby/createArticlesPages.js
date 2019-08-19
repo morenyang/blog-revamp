@@ -2,12 +2,11 @@
 
 const path = require('path')
 const siteConfig = require('../site-config')
+const { getPathByPageFactory } = require('../router-helper')
 
 const postPerPage = siteConfig.postPerPage || 60
 
-const getPath = currentPage => {
-  return `/articles/${currentPage++ || ``}`
-}
+const getPath = getPathByPageFactory('articles')
 
 const getTotalPages = async graphql => {
   const allMarkdownCount = await graphql(`
@@ -23,11 +22,12 @@ const getTotalPages = async graphql => {
 }
 
 const createPageContext = (currentPage, totalPages) => ({
+  totalPages,
   currentPage,
   pageSize: postPerPage,
   postsOffset: currentPage * postPerPage,
-  prevPath: getPath(currentPage),
-  nextPath: getPath(currentPage + 2),
+  prevPath: getPath(currentPage - 1),
+  nextPath: getPath(currentPage + 1),
   hasPrev: currentPage !== 0,
   hasNext: currentPage !== totalPages - 1,
 })

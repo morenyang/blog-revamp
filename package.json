@@ -46,7 +46,7 @@
   "license": "MIT",
   "scripts": {
     "build": "yarn run clean && gatsby build",
-    "develop": "gatsby develop",
+    "develop": "yarn run clean && gatsby develop",
     "clean": "rimraf .cache public",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "format:scripts": "prettier --write \"**/*.{js,jsx,json,scss}\"",
