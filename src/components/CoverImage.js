@@ -1,18 +1,46 @@
 import React, { useRef, useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import BackgroundImage from 'gatsby-background-image'
-import useComponentSize from '@rehooks/component-size'
+
+const getElementSize = el => {
+  if (!el) {
+    return {
+      width: 0,
+      height: 0,
+    }
+  }
+
+  return {
+    width: el.offsetWidth,
+    height: el.offsetHeight,
+  }
+}
 
 const CoverImage = ({ children, fluid, aspectRatio, className }) => {
   let innerWrapper = useRef(null)
-  let size = useComponentSize(innerWrapper)
-  let { width } = size
-  let height = width * aspectRatio
+
+  useEffect(() => {
+    if (!innerWrapper.current) {
+      return
+    }
+    const el = innerWrapper.current
+    const handleResize = () => {
+      const { width } = getElementSize(el)
+      el.style.height = `${Math.round(width * aspectRatio)}px`
+    }
+
+    handleResize()
+
+    const resizeObserver = new ResizeObserver(handleResize)
+    resizeObserver.observe(el)
+
+    return function() {
+      resizeObserver.disconnect()
+    }
+  })
+
   return (
     <BackgroundImage
-      style={{
-        height,
-      }}
       fluid={fluid}
       preserveStackingContext={true}
       className={className}
