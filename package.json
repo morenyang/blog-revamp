@@ -33,6 +33,16 @@
     "resize-observer-polyfill": "^1.5.1"
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.2",
+    "eslint": "^6.2.0",
+    "eslint-config-prettier": "^6.1.0",
+    "eslint-config-react-app": "^5.0.1",
+    "eslint-plugin-flowtype": "^4.2.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
     "gatsby-plugin-sass": "^2.1.8",
     "husky": "^3.0.3",
     "lint-staged": "^9.2.1",
@@ -50,6 +60,7 @@
     "clean": "rimraf .cache public",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "format:scripts": "prettier --write \"**/*.{js,jsx,json,scss}\"",
+    "lint:scripts": "eslint --ext .js,.jsx .",
     "start": "yarn run develop",
     "serve": "yarn run clean && gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
@@ -63,6 +74,9 @@
     "**/*.{js,jsx,json,scss}": [
       "prettier --write",
       "git add"
+    ],
+    "**/*.{js,jsx}": [
+      "eslint --fix"
     ]
   },
   "repository": {

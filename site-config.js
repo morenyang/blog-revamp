@@ -1,5 +1,3 @@
-'use strict'
-
 module.exports = {
   title: `Moren's`,
   description: `Nice to meet you, again. `,

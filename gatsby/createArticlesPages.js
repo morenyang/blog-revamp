@@ -1,5 +1,3 @@
-'use strict'
-
 const path = require('path')
 const siteConfig = require('../site-config')
 const { getPathByPageFactory } = require('../router-helper')
