@@ -1,4 +1,5 @@
 @import '../../scss/variables';
+@import '../../scss/mixins';
 $header-height: 60px;
 
 .headerWrapper {
@@ -20,6 +21,10 @@ $header-height: 60px;
 
   a {
     text-decoration: none;
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding: 0 $gutter;
   }
 }
 

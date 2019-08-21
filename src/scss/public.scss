@@ -1,7 +1,11 @@
 @import 'variables';
+@import 'mixins';
 
 .site-main {
   padding: $gutter-lg $gutter-lg $gutter;
+  @include media-breakpoint-down(sm) {
+    padding: $gutter;
+  }
 }
 
 .site-content {

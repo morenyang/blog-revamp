@@ -1,39 +1,46 @@
 @import '../scss/variables';
 @import '../scss/mixins';
 
+@mixin apply-not-first-child($n) {
+  @if $n > 1 {
+    @for $i from 2 through $n {
+      &:not(:nth-child(#{$n}n + 1)) {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin apply-article-card-border($n) {
+  @include apply-not-first-child($n) {
+    padding-left: $gutter - 1;
+    border-left: 1px solid $light-gray;
+  }
+}
+
+@mixin apply-article-card-grids($n) {
+  width: (1 / $n) * 100%;
+  flex: 0 0 (1 / $n) * 100%;
+}
+
 .articleCard {
-  width: 33.33%;
-  flex: 0 0 33.33%;
+  @include apply-article-card-grids(3);
   padding: $gutter;
   margin-bottom: $gutter-lg;
   display: flex;
   flex-direction: column;
 
-  @mixin apply-not-first-child($n) {
-    @if $n > 1 {
-      @for $i from 2 through $n {
-        &:not(:nth-child(#{$n}n + 1)) {
-          @content;
-        }
-      }
-    }
-  }
-
-  @mixin apply-border($n) {
-    @include apply-not-first-child($n) {
-      padding-left: $gutter - 1;
-      border-left: 1px solid $light-gray;
-    }
-  }
-
   @include media-breakpoint-up(lg) {
-    @include apply-border(3);
+    @include apply-article-card-border(3);
   }
 
-  @include media-breakpoint-down(md) {
-    width: 50%;
-    flex: 0 0 50%;
-    @include apply-border(2);
+  @include media-breakpoint-only(md) {
+    @include apply-article-card-grids(2);
+    @include apply-article-card-border(2);
+  }
+  @include media-breakpoint-down(sm) {
+    @include apply-article-card-grids(1);
+    @include apply-article-card-border(1);
   }
 }
 
