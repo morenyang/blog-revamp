@@ -4,9 +4,12 @@ import { Layout, SEO } from '../components/framework'
 import PageHeader from '../components/PageHeader'
 import ArticleList from '../components/ArticleList'
 import Pagination from '../components/Pagination'
+import { startCase } from 'lodash'
 
 const ArticlesPageTemplate = ({ data, pageContext }) => {
   const { edges } = data.allMarkdownRemark
+
+  const category = startCase(pageContext.category)
 
   const articles = edges.map(({ node }) => {
     const { frontmatter, ...rest } = node
@@ -19,9 +22,9 @@ const ArticlesPageTemplate = ({ data, pageContext }) => {
 
   return (
     <Layout>
-      <SEO title={'Articles'} />
+      <SEO title={category} />
       <section>
-        <PageHeader title={'Articles'} />
+        <PageHeader title={category} />
         <ArticleList articles={articles} />
         <Pagination {...pageContext} />
       </section>
@@ -32,13 +35,17 @@ const ArticlesPageTemplate = ({ data, pageContext }) => {
 export default ArticlesPageTemplate
 
 export const query = graphql`
-  query ArticlesPage($pageSize: Int!, $postsOffset: Int!) {
+  query ArticlesCategoriesPage(
+    $category: String
+    $pageSize: Int!
+    $postsOffset: Int!
+  ) {
     allMarkdownRemark(
       limit: $pageSize
       skip: $postsOffset
       filter: {
         fields: { collection: { eq: "article" } }
-        frontmatter: { draft: { ne: true } }
+        frontmatter: { categories: { in: [$category] }, draft: { ne: true } }
       }
       sort: { order: DESC, fields: [frontmatter___date] }
     ) {

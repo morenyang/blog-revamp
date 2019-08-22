@@ -1,10 +1,10 @@
 function getPathByPageFactory(prefix) {
   return function(page) {
-    let pageSting = ``
+    let pageString = ``
     if (page) {
-      pageSting = page + 1
+      pageString = page + 1
     }
-    return `/${prefix}/${pageSting}`.replace(/\/\//g, '/')
+    return `/${prefix}/${pageString}`.replace(/\/\//g, '/')
   }
 }
 
