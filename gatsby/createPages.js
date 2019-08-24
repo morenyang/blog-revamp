@@ -1,6 +1,6 @@
-const createArticlesPages = require('./createArticlesPages')
-const createArticlesCategoriesPages = require('./createArticlesCategoriesPages')
-const createArticleContentPages = require('./createArticleContentPages')
+const createArticlesPages = require('./pages/createArticlesPages')
+const createArticlesCategoriesPages = require('./pages/createArticlesCategoriesPages')
+const createArticleContentPages = require('./pages/createArticleContentPages')
 
 const createPages = async ({ graphql, actions }) => {
   await createArticlesPages({ graphql, actions })
