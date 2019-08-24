@@ -1,10 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Layout, SEO } from '../components/framework'
-import PageHeader from '../components/PageHeader'
-import ArticleList from '../components/ArticleList'
-import Pagination from '../components/Pagination'
 import { startCase } from 'lodash'
+import ArticleListPage from '../components/ArticleListPage'
 
 const ArticlesPageTemplate = ({ data, pageContext }) => {
   const { edges } = data.allMarkdownRemark
@@ -21,14 +18,7 @@ const ArticlesPageTemplate = ({ data, pageContext }) => {
   })
 
   return (
-    <Layout>
-      <SEO title={category} />
-      <section>
-        <PageHeader title={category} />
-        <ArticleList articles={articles} />
-        <Pagination {...pageContext} />
-      </section>
-    </Layout>
+    <ArticleListPage articles={articles} title={category} {...pageContext} />
   )
 }
 
