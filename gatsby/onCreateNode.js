@@ -1,5 +1,8 @@
 const { createFilePath } = require('gatsby-source-filesystem')
-const { getPathByPageFactory } = require('../router-helper')
+const {
+  getPathByPageFactory,
+  getCategoryPathByPage,
+} = require('../router-helper')
 const _ = require('lodash')
 
 const isNodeMarkdown = node => node.internal.type === 'MarkdownRemark'
@@ -58,12 +61,10 @@ const createCollectionFieldByParentSourceInstanceName = ({
 
 const createCategoriesField = ({ node, createNodeField }) => {
   const categories = node.frontmatter.categories || []
-  const getCategoryLink = category =>
-    getPathByPageFactory(`/category/${_.kebabCase(category)}`)()
 
   const categoriesFieldValue = categories.map(category => ({
     category: _.startCase(category),
-    link: getCategoryLink(category),
+    link: getCategoryPathByPage(category),
   }))
 
   createNodeField({

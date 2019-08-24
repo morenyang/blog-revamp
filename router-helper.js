@@ -1,3 +1,5 @@
+const _ = require('lodash')
+
 function getPathByPageFactory(prefix) {
   return function(page = 0) {
     let pageString = ``
@@ -14,7 +16,12 @@ function getPathBySlugFactory(prefix) {
   }
 }
 
+function getCategoryPathByPage(category, page = 0) {
+  return getPathByPageFactory(`/category/${_.kebabCase(category)}`)(page)
+}
+
 module.exports = {
   getPathByPageFactory,
   getPathBySlugFactory,
+  getCategoryPathByPage,
 }

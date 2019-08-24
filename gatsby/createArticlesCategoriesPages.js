@@ -1,12 +1,6 @@
 const path = require('path')
 const siteConfig = require('../site-config')
-const _ = require('lodash')
-
-const { getPathByPageFactory } = require('../router-helper')
-
-const getPath = (category, page) => {
-  return getPathByPageFactory(`category/${_.kebabCase(category)}`)(page)
-}
+const { getCategoryPathByPage } = require('../router-helper')
 
 const postPerPage = siteConfig.postPerPage || 60
 
@@ -34,8 +28,8 @@ const createPageContext = (category, currentPage, totalPages) => {
     currentPage,
     pageSize: postPerPage,
     postsOffset: currentPage * postPerPage,
-    prevPath: getPath(currentPage - 1),
-    nextPath: getPath(currentPage + 1),
+    prevPath: getCategoryPathByPage(category, currentPage - 1),
+    nextPath: getCategoryPathByPage(category, currentPage + 1),
     hasPrev: currentPage !== 0,
     hasNext: currentPage !== totalPages - 1,
     category: category,
@@ -49,7 +43,7 @@ const createCategoryPage = ({
   category,
 }) => {
   createPage({
-    path: getPath(category, currentPage),
+    path: getCategoryPathByPage(category, currentPage),
     component: path.resolve(
       `./src/templates/ArticlesCategoriesPageTemplate.js`
     ),
