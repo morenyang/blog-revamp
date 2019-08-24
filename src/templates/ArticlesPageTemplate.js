@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import ArticleListPage from '../components/ArticleListPage'
+import ArticleListPage from '../components/common/ArticleListPage'
 
 const ArticlesPageTemplate = ({ data, pageContext }) => {
   const { edges } = data.allMarkdownRemark

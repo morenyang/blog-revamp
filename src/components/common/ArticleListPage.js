@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Layout, SEO } from './framework'
-import PageHeader from './PageHeader'
-import ArticleList from './ArticleList'
-import Pagination from './Pagination'
+import { Layout, SEO } from '../framework'
+import PageHeader from '../PageHeader'
+import ArticleList from '../ArticleList'
+import Pagination from '../Pagination'
 
 const ArticleListPage = ({
   articles,
