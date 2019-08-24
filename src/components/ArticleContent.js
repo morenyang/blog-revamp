@@ -4,6 +4,8 @@ import styles from './ArticleContent.module.scss'
 import CoverImage from './CoverImage'
 import classnames from 'classnames'
 import moment from 'moment'
+import { Link } from 'gatsby'
+import { startCase } from 'lodash'
 
 const ArticleContent = ({ article }) => {
   const { coverImage } = article
@@ -25,6 +27,19 @@ const ArticleContent = ({ article }) => {
           <h3>{article.description}</h3>
           <div className={styles.meta}>
             {moment(article.date).format('MMMM DD, YYYY')}
+            <span className={styles.categories}>
+              {article.fields.categories
+                .map(item => (
+                  <Link to={`${item.link}`} className={styles.category}>
+                    {startCase(item.category)}
+                  </Link>
+                ))
+                .reduce(
+                  (acc, current, index) =>
+                    index ? [...acc, ', ', current] : [...acc, current],
+                  []
+                )}
+            </span>
           </div>
         </div>
       </div>

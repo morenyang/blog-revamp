@@ -224,5 +224,11 @@
   margin-top: $gutter;
   font-weight: 300;
   color: $secondary;
-  font-size: 13px;
+  font-size: 14px;
+  .categories {
+    margin-left: $gutter;
+  }
+  .category {
+    color: $secondary;
+  }
 }

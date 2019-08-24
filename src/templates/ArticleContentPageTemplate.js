@@ -35,6 +35,12 @@ export const query = graphql`
     markdownRemark(id: { eq: $id }) {
       id
       html
+      fields {
+        categories {
+          category
+          link
+        }
+      }
       frontmatter {
         title
         description

@@ -5,6 +5,7 @@ import CoverImage from './CoverImage'
 import { Link } from 'gatsby'
 import moment from 'moment'
 import routerHelper from '../utils/routerHelper'
+import { startCase, join } from 'lodash'
 
 const getPath = routerHelper.getPathBySlugFactory(`articles`)
 
@@ -29,6 +30,19 @@ const ArticleCard = ({ article }) => {
       </Link>
       <div className={styles.meta}>
         <span>{moment(date).format('MMMM DD, YYYY')}</span>
+        <span className={styles.categories}>
+          {article.fields.categories
+            .map(item => (
+              <Link to={`${item.link}`} className={styles.category}>
+                {startCase(item.category)}
+              </Link>
+            ))
+            .reduce(
+              (acc, current, index) =>
+                index ? [...acc, ', ', current] : [...acc, current],
+              []
+            )}
+        </span>
       </div>
     </article>
   )

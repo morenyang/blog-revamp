@@ -44,8 +44,11 @@ export const query = graphql`
       limit: $pageSize
       skip: $postsOffset
       filter: {
-        fields: { collection: { eq: "article" } }
-        frontmatter: { categories: { in: [$category] }, draft: { ne: true } }
+        fields: {
+          categories: { elemMatch: { category: { in: [$category] } } }
+          collection: { eq: "article" }
+        }
+        frontmatter: { draft: { ne: true } }
       }
       sort: { order: DESC, fields: [frontmatter___date] }
     ) {
@@ -54,6 +57,10 @@ export const query = graphql`
           id
           fields {
             slug
+            categories {
+              category
+              link
+            }
           }
           frontmatter {
             title

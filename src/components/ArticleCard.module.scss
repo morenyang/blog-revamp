@@ -84,4 +84,10 @@
   font-size: 13px;
   color: $secondary;
   font-weight: 300;
+  .categories {
+    margin-left: $gutter-small;
+  }
+  .category {
+    color: $secondary;
+  }
 }
