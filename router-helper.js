@@ -1,5 +1,5 @@
 function getPathByPageFactory(prefix) {
-  return function(page) {
+  return function(page = 0) {
     let pageString = ``
     if (page) {
       pageString = page + 1

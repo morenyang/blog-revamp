@@ -14,7 +14,7 @@ const getCategoriesAndCounts = async graphql => {
   const categoriesAndCounts = await graphql(`
     {
       allMarkdownRemark(filter: { fields: { collection: { eq: "article" } } }) {
-        group(field: frontmatter___categories) {
+        group(field: fields___categories___category) {
           fieldValue
           totalCount
         }
