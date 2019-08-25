@@ -1,18 +1,12 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import ArticleListPage from '../components/common/ArticleListPage'
+import { resolveArticle } from '../utils/articles'
 
 const ArticlesPageTemplate = ({ data, pageContext }) => {
   const { edges } = data.allMarkdownRemark
 
-  const articles = edges.map(({ node }) => {
-    const { frontmatter, ...rest } = node
-
-    return {
-      ...rest,
-      ...frontmatter,
-    }
-  })
+  const articles = edges.map(({ node }) => resolveArticle(node))
 
   return (
     <ArticleListPage title={'Articles'} articles={articles} {...pageContext} />

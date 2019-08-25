@@ -3,16 +3,14 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout, { SEO } from '../components/framework'
 import ArticleContent from '../components/ArticleContent'
+import { resolveArticle } from '../utils/articles'
 
 const ArticleContentPage = ({ data }) => {
   const { markdownRemark } = data
 
   const title = markdownRemark.frontmatter.title
-  const { frontmatter, ...rest } = markdownRemark
-  const article = {
-    ...rest,
-    ...frontmatter,
-  }
+  const article = resolveArticle(markdownRemark)
+
   return (
     <Layout className="site-content">
       <SEO title={title} />
