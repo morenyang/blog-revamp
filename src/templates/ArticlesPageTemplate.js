@@ -26,30 +26,7 @@ export const query = graphql`
       }
       sort: { order: DESC, fields: [frontmatter___date] }
     ) {
-      edges {
-        node {
-          id
-          fields {
-            slug
-            categories {
-              category
-              link
-            }
-          }
-          frontmatter {
-            title
-            description
-            date
-            coverImage {
-              childImageSharp {
-                fluid(maxWidth: 800, toFormat: WEBP) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-        }
-      }
+      ...ArticlesPageArticleMetadata
     }
   }
 `

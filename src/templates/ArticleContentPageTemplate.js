@@ -31,26 +31,7 @@ ArticleContentPage.propTypes = {
 export const query = graphql`
   query ArticleContentById($id: String!) {
     markdownRemark(id: { eq: $id }) {
-      id
-      html
-      fields {
-        categories {
-          category
-          link
-        }
-      }
-      frontmatter {
-        title
-        description
-        date
-        coverImage {
-          childImageSharp {
-            fluid(maxWidth: 1440, toFormat: WEBP) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
+      ...ArticleContent
     }
   }
 `
