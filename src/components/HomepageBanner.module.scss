@@ -1,0 +1,20 @@
+@import '../scss/variables';
+
+.homepageBanner {
+}
+
+.homepageBannerInner {
+  max-width: $wrapper-max-width;
+  min-height: 320px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.banner {
+  font-size: 120px;
+  font-weight: 200;
+  line-height: 130px;
+  color: $secondary;
+}

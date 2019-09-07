@@ -7,8 +7,6 @@ import classnames from 'classnames'
 const Pagination = ({ hasPrev, hasNext, prevPath, nextPath }) => {
   const renderPagination = hasPrev || hasNext
 
-  console.log(prevPath, nextPath)
-
   if (!renderPagination) {
     return null
   }
