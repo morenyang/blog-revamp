@@ -1,0 +1,30 @@
+@import 'variables';
+
+@mixin button-base {
+  padding: $gutter-small * 1.25 $gutter;
+  border-radius: 2px;
+  font-size: 16px;
+  line-height: 24px;
+  transition: all 0.1s ease-in-out;
+  text-align: center;
+  min-width: 120px;
+  &:hover {
+    box-shadow: 0 0 0 transparent;
+  }
+}
+
+@mixin button($color) {
+  @include button-base;
+  border: 1px solid $color;
+  color: #fff;
+  background: $color;
+  box-shadow: ($gutter-small / 2) ($gutter-small / 2) 0 rgba($color, 0.15);
+}
+
+@mixin button-light($color) {
+  @include button-base;
+  border: 1px solid $color;
+  color: $color;
+  background: #fff;
+  box-shadow: ($gutter-small / 2) ($gutter-small / 2) 0 rgba($color, 0.1);
+}

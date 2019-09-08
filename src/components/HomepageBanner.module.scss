@@ -1,6 +1,10 @@
 @import '../scss/variables';
+@import '../scss/buttons';
+@import '../scss/mixins';
 
 .homepageBanner {
+  margin-top: 20vh;
+  display: flex;
 }
 
 .homepageBannerInner {
@@ -8,13 +12,35 @@
   min-height: 320px;
   margin: 0 auto;
   height: 100%;
-  display: flex;
-  align-items: flex-end;
+}
+
+$banner-text-shadow: '';
+@for $i from 1 through 1000 {
+  @if $i != 1 {
+    $banner-text-shadow: $banner-text-shadow + ', ';
+  }
+  $banner-text-shadow: $banner-text-shadow + '#{$i}px #{$i}px #{$light-gray}';
 }
 
 .banner {
   font-size: 120px;
   font-weight: 200;
-  line-height: 130px;
+  line-height: 120px;
   color: $secondary;
+  text-shadow: #{$banner-text-shadow};
+  margin-bottom: $gutter-lg;
+  strong {
+    color: $primary;
+  }
+  @include media-breakpoint-down(sm) {
+    font-size: 60px;
+    line-height: 64px;
+  }
+}
+
+.bannerFeature {
+  margin: $gutter-lg 0 $gutter-lg + $gutter;
+  .featureBtn {
+    @include button($black);
+  }
 }

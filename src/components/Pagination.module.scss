@@ -1,4 +1,5 @@
 @import '../scss/variables';
+@import '../scss/buttons';
 
 .pagination {
   display: flex;
@@ -11,23 +12,8 @@
 }
 
 .paginationBtn {
-  padding: $gutter-small * 1.25 $gutter;
-  border: 1px solid transparent;
-  color: 1px solid $black;
-  background: #fff;
-  border-radius: 2px;
-  font-size: 16px;
-  line-height: 24px;
-  &:hover {
-    border-color: black;
-  }
-
+  @include button-light($black);
   &.main {
-    background: $black;
-    color: #fff;
-    border-color: $black;
-    &:hover {
-      border-color: #fff;
-    }
+    @include button($black);
   }
 }

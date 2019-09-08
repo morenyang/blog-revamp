@@ -9,10 +9,10 @@
 
 .footer {
   margin: 0 $gutter;
-  padding: $gutter;
+  padding: $gutter-small $gutter;
   border-top: 1px solid $light-gray;
   display: flex;
-  font-size: 18px;
+  font-size: 16px;
   @include media-breakpoint-down(sm) {
     padding: $gutter $gutter-small;
     margin: 0 $gutter-small;
@@ -22,7 +22,7 @@
 .footerCopyright,
 .footerLinks {
   margin-top: $gutter-small;
-  margin-bottom: $gutter;
+  margin-bottom: $gutter-small;
   font-weight: 300;
 }
 
