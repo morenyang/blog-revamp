@@ -30,7 +30,11 @@ const ArticleContent = ({ article }) => {
             <span className={styles.categories}>
               {article.fields.categories
                 .map(item => (
-                  <Link to={`${item.link}`} className={styles.category}>
+                  <Link
+                    key={item}
+                    to={`${item.link}`}
+                    className={styles.category}
+                  >
                     {startCase(item.category)}
                   </Link>
                 ))
