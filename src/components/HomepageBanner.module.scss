@@ -14,20 +14,11 @@
   height: 100%;
 }
 
-$banner-text-shadow: '';
-@for $i from 1 through 1000 {
-  @if $i != 1 {
-    $banner-text-shadow: $banner-text-shadow + ', ';
-  }
-  $banner-text-shadow: $banner-text-shadow + '#{$i}px #{$i}px #{$light-gray}';
-}
-
 .banner {
   font-size: 120px;
   font-weight: 200;
   line-height: 120px;
   color: $secondary;
-  text-shadow: #{$banner-text-shadow};
   margin-bottom: $gutter-lg;
   strong {
     color: $primary;
