@@ -1,8 +1,9 @@
 ---
 title: React新生命周期函数和迁移路径
-banner: ./3.jpg
 date: 2018-05-28
 foreword: 简单介绍新的生命周期函数、说明旧的生命周期函数可能造成的一些问题以及如何迁移到新的生命周期函数。
+categories:
+  - React
 ---
 
 在今年三月底的时候 React 发布了 16.3 版本。这次更新主要有两个内容——新的生命周期函数和 context API（[React v16.3.0: New lifecycles and context API](https://reactjs.org/blog/2018/03/29/react-v-16-3.html)）。
