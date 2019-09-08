@@ -55,5 +55,8 @@ $header-height: 60px;
     &:hover {
       border-bottom: 2px solid $primary;
     }
+    a:hover {
+      text-decoration: none;
+    }
   }
 }
