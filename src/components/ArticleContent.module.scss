@@ -132,7 +132,7 @@
     }
   }
 
-  & > :global(.gatsby-resp-image-wrapper) {
+  & :global(.gatsby-resp-image-wrapper) {
     max-width: 100% !important;
     margin-right: $gutter-lg * 3 !important;
     margin-bottom: $gutter-lg;
