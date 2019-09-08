@@ -80,6 +80,12 @@ module.exports = {
       options: {
         implementation: require('sass'),
         precision: 6,
+        cssLoaderOptions: {
+          localIdentName:
+            process.env.NODE_ENV === 'production'
+              ? '_[hash:base64:8]'
+              : undefined,
+        },
       },
     },
   ],
