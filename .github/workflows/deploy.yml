@@ -33,10 +33,20 @@ jobs:
         env:
           ZEIT_TOKEN: ${{ secrets.ZEIT_TOKEN }}
 
+  filter_out_master:
+    name: Filter out master branch
+    runs-on: ubuntu-latest
+    needs: [deploy]
+    steps:
+      - name: Filter out master branch
+        uses: actions/bin/filter@master
+        with:
+          args: 'branch master'
+
   publish:
     name: Publish to prod
     runs-on: ubuntu-latest
-    needs: [deploy]
+    needs: [filter_out_master]
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v1
