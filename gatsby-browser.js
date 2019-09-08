@@ -7,4 +7,4 @@
 // You can delete this file if you're not using it
 require('./src/scss/reboot.scss')
 require('./src/scss/public.scss')
-require('prismjs/themes/prism-tomorrow.css')
+require('prism-themes/themes/prism-vs.css')

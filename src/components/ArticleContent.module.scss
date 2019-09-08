@@ -171,9 +171,9 @@
     }
   }
 
-  & > :global(.gatsby-highlight) {
+  :global(.gatsby-highlight) {
     margin-bottom: $gutter + $gutter-small;
-    font-size: 16px;
+    font-size: 14px;
 
     pre {
       margin-bottom: 0;
@@ -183,6 +183,12 @@
     pre[class*='language-'] {
       font-family: $font-family-monospace;
     }
+  }
+
+  :global(code[class*='language-']),
+  :global(pre[class*='language-']) {
+    font-size: 15px;
+    font-family: $font-family-monospace;
   }
 
   & > h1,
