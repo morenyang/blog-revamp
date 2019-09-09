@@ -5,7 +5,7 @@
   padding: 0 $gutter-lg;
   max-height: 1200px;
   overflow: hidden;
-  display: flex;
+  position: relative;
   @include media-breakpoint-down(sm) {
     padding: 0 $gutter-small;
   }
