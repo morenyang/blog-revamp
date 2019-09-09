@@ -83,8 +83,8 @@ module.exports = {
         cssLoaderOptions: {
           localIdentName:
             process.env.NODE_ENV === 'production'
-              ? '_[hash:base64:8]'
-              : undefined,
+              ? '_[hash:base64:6]'
+              : '[name]__[local]--[hash:base64:5]',
         },
       },
     },
