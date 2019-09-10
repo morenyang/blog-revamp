@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Layout, SEO } from '../components/framework'
-import styles from './404.module.scss'
+import styles from './NotFountPage.module.scss'
 import { Link } from 'gatsby'
 
 const NotFoundPage = () => {

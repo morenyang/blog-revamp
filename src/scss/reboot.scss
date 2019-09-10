@@ -2,9 +2,3 @@
 @import 'variables';
 @import 'global';
 @import '~bootstrap/scss/bootstrap-reboot';
-
-body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-smooth: always;
-}
