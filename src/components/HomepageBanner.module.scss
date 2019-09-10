@@ -33,8 +33,9 @@
 
 .bannerShadow {
   position: absolute;
-  z-index: 0;
+  z-index: 2;
   color: transparent;
+  opacity: 0.9;
 }
 
 .bannerInner {
@@ -44,7 +45,7 @@
 
 .bannerGallery {
   position: absolute;
-  z-index: 2;
+  z-index: 1;
 }
 
 .bannerFeature {
