@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'gatsby'
 import styles from './HomepageBanner.module.scss'
 import HomePageBannerGallery from './HomepageBannerGallery'
@@ -12,10 +12,15 @@ const HomepageBanner = () => {
     </>
   )
 
-  let bannerTextShadow = []
-  for (let i = 0; i < 1000; i++) {
-    bannerTextShadow.push(`${i}px ${i}px #e8e8e8`)
-  }
+  const [bannerTextShadow, setShadow] = useState('')
+
+  useEffect(() => {
+    let shadow = []
+    for (let i = 0; i < 1000; i++) {
+      shadow.push(`${i}px ${i}px #e8e8e8`)
+    }
+    setShadow(shadow.join(', '))
+  }, [])
 
   return (
     <>
@@ -27,7 +32,7 @@ const HomepageBanner = () => {
           <div className={styles.banner}>
             <div
               className={styles.bannerShadow}
-              style={{ textShadow: bannerTextShadow.join(', ') }}
+              style={{ textShadow: bannerTextShadow }}
             >
               {bannerText}
             </div>

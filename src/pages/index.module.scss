@@ -2,18 +2,14 @@
 @import '../scss/mixins';
 
 .homepageLayout {
-  padding: 0 $gutter-lg;
-  max-height: 1200px;
   overflow: hidden;
   position: relative;
   display: flex;
   flex-direction: column;
+  max-width: none;
   main {
     flex: 1;
     display: flex;
-  }
-  @include media-breakpoint-down(sm) {
-    padding: 0 $gutter-small;
   }
   & + div {
     margin-top: 0;

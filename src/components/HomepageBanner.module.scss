@@ -10,10 +10,15 @@
 }
 
 .homepageBannerInner {
+  width: 100%;
   max-width: $wrapper-max-width;
   min-height: 360px;
-  margin: 20vh 0 0;
+  margin: 20vh auto 0;
   height: 100%;
+  padding: 0 $gutter-lg;
+  @include media-breakpoint-down(sm) {
+    padding: 0 $gutter;
+  }
 }
 
 .banner {
@@ -29,6 +34,9 @@
     font-size: 60px;
     line-height: 64px;
   }
+  @media screen and( max-width: 350px ) {
+    font-size: 48px;
+  }
 }
 
 .bannerShadow {
@@ -36,6 +44,9 @@
   z-index: 2;
   color: transparent;
   opacity: 0.9;
+  strong {
+    color: transparent;
+  }
 }
 
 .bannerInner {
