@@ -5,7 +5,7 @@ import CoverImage from './CoverImage'
 import { Link } from 'gatsby'
 import moment from 'moment'
 import routerHelper from '../utils/routerHelper'
-import { startCase, join } from 'lodash'
+import { startCase } from 'lodash'
 
 const getPath = routerHelper.getPathBySlugFactory(`articles`)
 
