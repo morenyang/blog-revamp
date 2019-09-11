@@ -7,6 +7,8 @@
   width: 100%;
   position: relative;
   z-index: 1;
+  max-height: 1200px;
+  overflow-y: hidden;
 }
 
 .homepageBannerInner {
@@ -40,6 +42,7 @@
 }
 
 .bannerShadow {
+  display: inline;
   position: absolute;
   z-index: 2;
   color: transparent;
@@ -50,6 +53,7 @@
 }
 
 .bannerInner {
+  display: inline;
   position: relative;
   z-index: 10;
 }
@@ -61,6 +65,7 @@
 
 .bannerFeature {
   margin: $gutter-lg 0 $gutter-lg + $gutter;
+  display: inline-flex;
   position: relative;
   z-index: 10;
   .featureBtn {

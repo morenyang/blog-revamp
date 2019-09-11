@@ -62,7 +62,9 @@ const HomePageBannerGallery = ({ width, height }) => {
   }
 
   const getRandomGradientName = () => {
-    const names = Object.keys(gradientGroup)
+    const names = Object.keys(gradientGroup).filter(
+      item => item !== gradientName
+    )
     const index = Math.floor(Math.random() * names.length)
     return names[index]
   }
@@ -85,10 +87,10 @@ const HomePageBannerGallery = ({ width, height }) => {
             <Group key={`lines-${i}`} top={(i * yMax) / 2}>
               <LinePath
                 data={d}
-                x={d => xScale(x(d))}
-                y={d => yScale(y(d))}
+                x={_d => xScale(x(_d))}
+                y={_d => yScale(y(_d))}
                 stroke={'url(#stroke)'}
-                strokeWidth={1.5}
+                strokeWidth={2}
                 curve={i % 2 === 0 ? curveMonotoneX : undefined}
               />
             </Group>
