@@ -61,7 +61,10 @@ const HomePageBannerGallery = ({ width, height }) => {
     GradientTealBlue,
   }
 
-  const getRandomGradientName = () => {
+  let gradientName = '',
+    setGradientName
+
+  function getRandomGradientName() {
     const names = Object.keys(gradientGroup).filter(
       item => item !== gradientName
     )
@@ -69,7 +72,9 @@ const HomePageBannerGallery = ({ width, height }) => {
     return names[index]
   }
 
-  const [gradientName, setGradientName] = useState(getRandomGradientName())
+  const _useStateGradientName = useState(getRandomGradientName())
+  gradientName = _useStateGradientName[0]
+  setGradientName = _useStateGradientName[1]
 
   const Gradient = gradientGroup[gradientName]
 
