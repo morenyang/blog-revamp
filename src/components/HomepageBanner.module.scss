@@ -3,15 +3,24 @@
 @import '../scss/mixins';
 
 .homepageBanner {
-  margin-top: 20vh;
   display: flex;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  max-height: 1200px;
+  overflow-y: hidden;
 }
 
 .homepageBannerInner {
+  width: 100%;
   max-width: $wrapper-max-width;
-  min-height: 320px;
-  margin: 0 auto;
+  min-height: 360px;
+  margin: 20vh auto 0;
   height: 100%;
+  padding: 0 $gutter-lg;
+  @include media-breakpoint-down(sm) {
+    padding: 0 $gutter;
+  }
 }
 
 .banner {
@@ -21,16 +30,44 @@
   color: $secondary;
   margin-bottom: $gutter-lg;
   strong {
-    color: $primary;
+    color: $black;
   }
   @include media-breakpoint-down(sm) {
     font-size: 60px;
     line-height: 64px;
   }
+  @media screen and( max-width: 350px ) {
+    font-size: 48px;
+  }
+}
+
+.bannerShadow {
+  display: inline;
+  position: absolute;
+  z-index: 2;
+  color: transparent;
+  opacity: 0.9;
+  strong {
+    color: transparent;
+  }
+}
+
+.bannerInner {
+  display: inline;
+  position: relative;
+  z-index: 10;
+}
+
+.bannerGallery {
+  position: absolute;
+  z-index: 1;
 }
 
 .bannerFeature {
   margin: $gutter-lg 0 $gutter-lg + $gutter;
+  display: inline-flex;
+  position: relative;
+  z-index: 10;
   .featureBtn {
     @include button($black);
   }
