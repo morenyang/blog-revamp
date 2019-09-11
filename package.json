@@ -73,7 +73,7 @@
     "start": "yarn run develop",
     "serve": "yarn run clean && gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
-    "now-build": "npm run clean && gatsby build"
+    "now-build": "yarn run clean && gatsby build"
   },
   "husky": {
     "hooks": {
