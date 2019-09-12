@@ -1,11 +1,21 @@
 name: Deploy
 
 on:
-  push:
-    branches:
-      - master
+  - push
+  - pull_request
 
 jobs:
+  sonarCloudTrigger:
+    name: SonarCloud Trigger
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
   lint:
     runs-on: ubuntu-latest
     steps:
@@ -30,27 +40,27 @@ jobs:
         uses: actions/checkout@v1
       - name: Deploy on Zeit
         uses: actions/zeit-now@master
+        with:
+          args: '> $HOME/action_$GITHUB_ACTION_deploy'
+        env:
+          ZEIT_TOKEN: ${{ secrets.ZEIT_TOKEN }}
+      - name: Deploy pp
+        uses: actions/zeit-now@master
+        if: github.ref == 'refs/heads/pp'
+        with:
+          args: alias `cat $HOME/action_$GITHUB_ACTION_deploy` yangteng_blog_pp
         env:
           ZEIT_TOKEN: ${{ secrets.ZEIT_TOKEN }}
 
-  filter_out_master:
-    name: Filter out master branch
-    runs-on: ubuntu-latest
-    needs: [deploy]
-    steps:
-      - name: Filter out master branch
-        uses: actions/bin/filter@master
-        with:
-          args: 'branch master'
-
-  publish:
+  production:
     name: Publish to prod
     runs-on: ubuntu-latest
-    needs: [filter_out_master]
+    needs: [deploy]
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v1
       - name: Deploy on Zeit - Prod
+        if: github.ref == 'refs/heads/master'
         uses: actions/zeit-now@master
         env:
           ZEIT_TOKEN: ${{ secrets.ZEIT_TOKEN }}

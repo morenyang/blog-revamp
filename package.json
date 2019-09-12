@@ -5,8 +5,16 @@
   "version": "0.1.0",
   "author": "Moren Yang <morenyang88@gmail.com>",
   "dependencies": {
+    "@vx/curve": "^0.0.189",
+    "@vx/gradient": "^0.0.189",
+    "@vx/group": "^0.0.190",
+    "@vx/mock-data": "^0.0.189",
+    "@vx/responsive": "^0.0.189",
+    "@vx/scale": "^0.0.190",
+    "@vx/shape": "^0.0.190",
     "bootstrap": "^4.3.1",
     "classnames": "^2.2.6",
+    "d3-array": "^2.3.1",
     "gatsby": "^2.13.57",
     "gatsby-background-image": "^0.8.4",
     "gatsby-image": "^2.2.8",
@@ -65,7 +73,7 @@
     "start": "yarn run develop",
     "serve": "yarn run clean && gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
-    "now-build": "npm run clean && gatsby build"
+    "now-build": "yarn run clean && gatsby build"
   },
   "husky": {
     "hooks": {
