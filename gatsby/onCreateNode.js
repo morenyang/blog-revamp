@@ -1,8 +1,5 @@
 const { createFilePath } = require('gatsby-source-filesystem')
-const {
-  getPathByPageFactory,
-  getCategoryPathByPage,
-} = require('../router-helper')
+const { getCategoryPathByPage } = require('../router-helper')
 const _ = require('lodash')
 
 const isNodeMarkdown = node => node.internal.type === 'MarkdownRemark'
