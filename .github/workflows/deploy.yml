@@ -48,7 +48,7 @@ jobs:
         uses: actions/zeit-now@master
         if: github.ref == 'refs/heads/pp'
         with:
-          args: alias `cat $HOME/action_$GITHUB_ACTION_deploy` yangteng_blog_pp
+          args: alias `cat $HOME/action_$GITHUB_ACTION_deploy` yangteng_blog_pp.yangteng.now.sh
         env:
           ZEIT_TOKEN: ${{ secrets.ZEIT_TOKEN }}
 
