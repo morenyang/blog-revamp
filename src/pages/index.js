@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './index.module.scss'
 
 import { Layout, SEO } from '../components/framework'
-import HomepageBanner from '../components/HomepageBanner'
+import HomepageBanner from '../components/homepage/HomepageBanner'
 
 const IndexPage = () => (
   <Layout className={styles.homepageLayout}>

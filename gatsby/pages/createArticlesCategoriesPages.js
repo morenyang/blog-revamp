@@ -1,6 +1,6 @@
 const path = require('path')
 const siteConfig = require('../../site-config')
-const { getCategoryPathByPage } = require('../../router-helper')
+const { getCategoryPathByPage } = require('../../common/routerHelper')
 
 const postPerPage = siteConfig.postPerPage || 60
 

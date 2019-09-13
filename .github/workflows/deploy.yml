@@ -5,18 +5,8 @@ on:
   - pull_request
 
 jobs:
-  sonarCloudTrigger:
-    name: SonarCloud Trigger
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - name: SonarCloud Scan
-        uses: sonarsource/sonarcloud-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
-  lint:
+  lintAndTest:
+    name: Lint and Test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -29,12 +19,19 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Lint
-        run: yarn run lint:scripts
+        run: yarn run lint:scripts:report
+      - name: Test
+        run: yarn run test:coverage
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
-    needs: [lint]
+    needs: [lintAndTest]
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v1
@@ -42,13 +39,6 @@ jobs:
         uses: actions/zeit-now@master
         with:
           args: '> $HOME/action_$GITHUB_ACTION_deploy'
-        env:
-          ZEIT_TOKEN: ${{ secrets.ZEIT_TOKEN }}
-      - name: Deploy pp
-        uses: actions/zeit-now@master
-        if: github.ref == 'refs/heads/pp'
-        with:
-          args: alias `cat $HOME/action_$GITHUB_ACTION_deploy` yangteng_blog_pp.yangteng.now.sh
         env:
           ZEIT_TOKEN: ${{ secrets.ZEIT_TOKEN }}
 
