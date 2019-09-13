@@ -1,3 +1,3 @@
-import routerHelper from '../../router-helper'
+import routerHelper from '../../common/routerHelper'
 
 export default { ...routerHelper }

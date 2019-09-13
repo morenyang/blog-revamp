@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './ArticleCard.module.scss'
-import CoverImage from './CoverImage'
+import CoverImage from '../common/CoverImage'
 import { Link } from 'gatsby'
 import moment from 'moment'
-import routerHelper from '../utils/routerHelper'
+import routerHelper from '../../utils/routerHelper'
 import { startCase } from 'lodash'
 
 const getPath = routerHelper.getPathBySlugFactory(`articles`)

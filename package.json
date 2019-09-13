@@ -5,8 +5,16 @@
   "version": "0.1.0",
   "author": "Moren Yang <morenyang88@gmail.com>",
   "dependencies": {
+    "@vx/curve": "^0.0.189",
+    "@vx/gradient": "^0.0.189",
+    "@vx/group": "^0.0.190",
+    "@vx/mock-data": "^0.0.189",
+    "@vx/responsive": "^0.0.189",
+    "@vx/scale": "^0.0.190",
+    "@vx/shape": "^0.0.190",
     "bootstrap": "^4.3.1",
     "classnames": "^2.2.6",
+    "d3-array": "^2.3.1",
     "gatsby": "^2.13.57",
     "gatsby-background-image": "^0.8.4",
     "gatsby-image": "^2.2.8",
@@ -35,6 +43,10 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.0.2",
+    "babel-jest": "^24.9.0",
+    "babel-preset-gatsby": "^0.2.13",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
     "eslint": "^6.2.0",
     "eslint-config-prettier": "^6.1.0",
     "eslint-config-react-app": "^5.0.1",
@@ -46,6 +58,8 @@
     "eslint-plugin-react-hooks": "^1.7.0",
     "gatsby-plugin-sass": "^2.1.8",
     "husky": "^3.0.3",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.9.0",
     "lint-staged": "^9.2.1",
     "prettier": "^1.18.2",
     "rimraf": "^2.7.0",
@@ -58,14 +72,16 @@
   "scripts": {
     "build": "yarn run clean && gatsby build",
     "develop": "yarn run clean && gatsby develop",
-    "clean": "rimraf .cache public",
+    "clean": "rimraf .cache public coverage .eslintcache",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "format:scripts": "prettier --write \"**/*.{js,jsx,json,scss}\"",
     "lint:scripts": "eslint --ext .js,.jsx .",
+    "lint:scripts:report": "eslint -f json -o .eslintcache/report.json --ext .js,.jsx .",
     "start": "yarn run develop",
     "serve": "yarn run clean && gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
-    "now-build": "npm run clean && gatsby build"
+    "test": "jest --config jest/jest.config.js",
+    "test:coverage": "yarn run clean && CI=true jest --config jest/jest.config.js --coverage",
+    "now-build": "yarn run clean && gatsby build"
   },
   "husky": {
     "hooks": {

@@ -14,5 +14,8 @@
     { "src": "/(.*)", "dest": "/$1" },
     { "handle": "filesystem" },
     { "src": "/.*", "status": 404, "dest": "/NotFoundPage.html" }
-  ]
+  ],
+  "github": {
+    "enabled": false
+  }
 }
