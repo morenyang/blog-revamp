@@ -10,23 +10,34 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
+
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
+
       - name: Setup yarn
         run: npm install -g yarn
+
       - name: Install dependencies
         run: yarn install
+
       - name: Lint
         run: yarn run lint:scripts:report
+
       - name: Test
         run: yarn run test:coverage
+
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+      - name: Codecov Scan
+        uses: codecov/codecov-action@v1.0.2
+        with:
+          token: ${{secrets.CODECOV_TOKEN}}
 
   deploy:
     name: Deploy

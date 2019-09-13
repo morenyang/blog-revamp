@@ -1,4 +1,4 @@
-import routerHelper from '../routerHelper'
+import routerHelper from './routerHelper'
 import lodash from 'lodash'
 
 describe('Test router helper', () => {
@@ -96,6 +96,21 @@ describe('Test router helper', () => {
         const PAGE = 1
         const path = routerHelper.getCategoryPathByPage(CATEGORY, PAGE)
         expect(path).toBe(`/category/kebabCase/2`)
+      }
+    )
+
+    it(
+      `should return '/category/kebabCase/2' ` +
+        'given category' +
+        'when call getCategoryPathByPage',
+      () => {
+        jest.mock('lodash')
+        lodash.kebabCase = jest.fn()
+        lodash.kebabCase.mockReturnValue(`kebabCase`)
+
+        const CATEGORY = `category`
+        const path = routerHelper.getCategoryPathByPage(CATEGORY)
+        expect(path).toBe(`/category/kebabCase/`)
       }
     )
   })
