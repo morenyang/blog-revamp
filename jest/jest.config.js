@@ -12,4 +12,6 @@ module.exports = {
   transformIgnorePatterns: [`node_modules/(?!(gatsby)/)`],
   testURL: `http://localhost`,
   setupFiles: [`<rootDir>/jest/loadershim.js`],
+  coverageDirectory: '<rootDir>/coverage',
+  collectCoverageFrom: ['<rootDir>/common/**', '<rootDir>/src/**'],
 }

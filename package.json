@@ -70,13 +70,15 @@
   "scripts": {
     "build": "yarn run clean && gatsby build",
     "develop": "yarn run clean && gatsby develop",
-    "clean": "rimraf .cache public",
+    "clean": "rimraf .cache public coverage .eslintcache",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "format:scripts": "prettier --write \"**/*.{js,jsx,json,scss}\"",
     "lint:scripts": "eslint --ext .js,.jsx .",
+    "lint:scripts:report": "eslint -f json -o .eslintcache/report.json --ext .js,.jsx .",
     "start": "yarn run develop",
     "serve": "yarn run clean && gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "test": "jest --config jest/jest.config.js",
+    "test:coverage": "yarn run clean && CI=true jest --config jest/jest.config.js --coverage",
     "now-build": "yarn run clean && gatsby build"
   },
   "husky": {
