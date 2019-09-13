@@ -1,4 +1,4 @@
-import routerHelper from '../../router-helper'
+import routerHelper from '../routerHelper'
 import lodash from 'lodash'
 
 describe('Test router helper', () => {

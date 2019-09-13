@@ -1,5 +1,5 @@
 const path = require('path')
-const { getPathBySlugFactory } = require('../../router-helper')
+const { getPathBySlugFactory } = require('../../common/routerHelper')
 
 const getArticleNodes = async graphql => {
   const result = await graphql(
