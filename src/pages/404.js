@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Layout, SEO } from '../components/framework'
-import styles from './NotFountPage.module.scss'
+import styles from './404.module.scss'
 import { Link } from 'gatsby'
 
-const NotFoundPage = () => {
+export default () => {
   const [pathname, setPathname] = useState(undefined)
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -28,5 +28,3 @@ const NotFoundPage = () => {
     </Layout>
   )
 }
-
-export default NotFoundPage

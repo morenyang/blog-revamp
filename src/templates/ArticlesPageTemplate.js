@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import ArticleListPage from '../components/common/ArticleListPage'
+import ArticleListPage from '../components/article/ArticleListPage'
 import { resolveArticle } from '../utils/articles'
 
 const ArticlesPageTemplate = ({ data, pageContext }) => {

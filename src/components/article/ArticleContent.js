@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './ArticleContent.module.scss'
-import CoverImage from './CoverImage'
+import CoverImage from '../common/CoverImage'
 import classnames from 'classnames'
 import moment from 'moment'
 import { Link } from 'gatsby'

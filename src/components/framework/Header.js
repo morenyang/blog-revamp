@@ -15,9 +15,9 @@ const Header = ({ title, headerLinks }) => {
         <nav className={styles.headerNavMainWrapper}>
           <ul className={styles.headerNavMain}>
             {headerLinks.map((link, index) => (
-              <li className={styles.headerNavItem} key={index}>
-                <Link to={link.path}>{link.name}</Link>
-              </li>
+              <Link to={link.path} key={index}>
+                <li className={styles.headerNavItem}>{link.name}</li>
+              </Link>
             ))}
           </ul>
         </nav>
