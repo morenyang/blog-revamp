@@ -11,8 +11,8 @@ categories:
 对于生命周期函数，主要有以下改变（[Update on Async Rendering](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html)）：
 
 - 以下生命周期函数将在以后的版本（17.0）中弃用（加上`UNSAFE_`前缀）：
-  - `componentWillMount` 
-  - `componentWillReceiveProps` 
+  - `componentWillMount`
+  - `componentWillReceiveProps`
   - `componentWillUpdate`
 - 添加了两个生命周期函数：
   - `static getDerivedStateFromProps`
