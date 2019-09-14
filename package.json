@@ -73,7 +73,7 @@
     "build": "yarn run clean && gatsby build",
     "develop": "yarn run clean && gatsby develop",
     "clean": "rimraf .cache public coverage .eslintcache",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "format": "prettier --write \"**/*.{js,jsx,json,md,scss}\"",
     "format:scripts": "prettier --write \"**/*.{js,jsx,json,scss}\"",
     "lint:scripts": "eslint --ext .js,.jsx .",
     "lint:scripts:report": "eslint -f json -o .eslintcache/report.json --ext .js,.jsx .",
