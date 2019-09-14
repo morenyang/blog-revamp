@@ -1,5 +1,5 @@
 ---
-title: JS学习笔记:提升
+title: 'JS学习笔记 : 提升'
 date: 2018-04-25 13:59:43
 description: 对不起，会编译原理真的可以为所欲为
 categories:
