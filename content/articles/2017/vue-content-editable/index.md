@@ -78,13 +78,9 @@ div[contentEditable]:empty:not(:focus):before {
 
 因此参照上面的写法，我们也可以自己写一组双向数据绑定:
 
-**html**
-
 ```html
 <div contenteditable v-text="content" @input="handleInput"></div>
 ```
-
-**js**
 
 ```js
 export default {

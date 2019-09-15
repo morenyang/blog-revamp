@@ -1,5 +1,5 @@
 ---
-title: JS学习笔记:闭包！闭包！
+title: 'JS学习笔记 : 闭包！闭包！'
 date: 2018-04-27
 description: Reference Not Error
 categories:
