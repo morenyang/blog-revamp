@@ -14,5 +14,9 @@ module.exports = {
   setupFiles: [`<rootDir>/jest/loadershim.js`],
   setupFilesAfterEnv: ['<rootDir>/jest/jest.setup.js'],
   coverageDirectory: '<rootDir>/coverage',
-  collectCoverageFrom: ['<rootDir>/common/**', '<rootDir>/src/**'],
+  collectCoverageFrom: [
+    '<rootDir>/common/**',
+    '<rootDir>/src/**',
+    '<rootDir>/gatsby/**',
+  ],
 }
