@@ -1,23 +1,9 @@
 const { createFilePath } = require('gatsby-source-filesystem')
 const { getCategoryPathByPage } = require('../common/routerHelper')
+const draftControl = require('./nodes/draftControl')
 const _ = require('lodash')
 
 const isNodeMarkdown = node => node.internal.type === 'MarkdownRemark'
-const onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
-  const creatorArgs = {
-    getNode,
-    node,
-    createNodeField,
-  }
-
-  if (isNodeMarkdown(node)) {
-    createCollectionFieldByParentSourceInstanceName(creatorArgs)
-    createSlugField(creatorArgs)
-    createCoverField(creatorArgs)
-    createCategoriesField(creatorArgs)
-  }
-}
 
 const createSlugField = ({ getNode, node, createNodeField }) => {
   const slug = createFilePath({ node, getNode })
@@ -28,7 +14,7 @@ const createSlugField = ({ getNode, node, createNodeField }) => {
   })
 }
 
-function createCoverField({ node, createNodeField }) {
+const createCoverField = ({ node, createNodeField }) => {
   const coverImage = node.frontmatter.coverImage
   createNodeField({
     node: node,
@@ -69,6 +55,23 @@ const createCategoriesField = ({ node, createNodeField }) => {
     name: `categories`,
     value: categoriesFieldValue,
   })
+}
+
+const onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions
+  const creatorArgs = {
+    getNode,
+    node,
+    createNodeField,
+  }
+
+  if (isNodeMarkdown(node)) {
+    createCollectionFieldByParentSourceInstanceName(creatorArgs)
+    createSlugField(creatorArgs)
+    createCoverField(creatorArgs)
+    createCategoriesField(creatorArgs)
+    draftControl(creatorArgs)
+  }
 }
 
 module.exports = onCreateNode
