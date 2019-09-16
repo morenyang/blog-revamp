@@ -82,7 +82,7 @@
     "start:draft": "cross-env ENABLE_DRAFT=true yarn run develop",
     "serve": "yarn run clean && gatsby serve",
     "test": "jest --config jest/jest.config.js",
-    "test:coverage": "yarn run clean && CI=true jest --config jest/jest.config.js --coverage",
+    "test:coverage": "yarn run clean && cross-env CI=true jest --config jest/jest.config.js --coverage",
     "now-build": "yarn run clean && gatsby build"
   },
   "husky": {
