@@ -7,8 +7,7 @@ const getArticleNodes = async graphql => {
       {
         allMarkdownRemark(
           filter: {
-            frontmatter: { draft: { ne: true } }
-            fields: { collection: { eq: "article" } }
+            fields: { collection: { eq: "article" }, released: { ne: false } }
           }
         ) {
           edges {

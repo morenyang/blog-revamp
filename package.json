@@ -45,6 +45,7 @@
     "babel-eslint": "^10.0.2",
     "babel-jest": "^24.9.0",
     "babel-preset-gatsby": "^0.2.13",
+    "cross-env": "^5.2.1",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "eslint": "^6.2.0",
@@ -78,9 +79,10 @@
     "lint:scripts": "eslint --ext .js,.jsx .",
     "lint:scripts:report": "eslint -f json -o .eslintcache/report.json --ext .js,.jsx .",
     "start": "yarn run develop",
+    "start:draft": "cross-env ENABLE_DRAFT=true yarn run develop",
     "serve": "yarn run clean && gatsby serve",
     "test": "jest --config jest/jest.config.js",
-    "test:coverage": "yarn run clean && CI=true jest --config jest/jest.config.js --coverage",
+    "test:coverage": "yarn run clean && cross-env CI=true jest --config jest/jest.config.js --coverage",
     "now-build": "yarn run clean && gatsby build"
   },
   "husky": {
