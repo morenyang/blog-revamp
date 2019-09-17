@@ -7,8 +7,8 @@ $font-family-serif: 'Source Serif Pro', Georgia, 'Times New Roman',
   -apple-system, BlinkMacSystemFont, serif, 'Apple Color Emoji',
   'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
-$font-family-monospace: 'Source Code Pro', SFMono-Regular, Menlo, Monaco,
-  Consolas, 'Liberation Mono', 'Courier New', monospace !default;
+$font-family-monospace: SFMono-Regular, Consolas, 'Liberation Mono', Menlo,
+  Monaco, 'Courier New', monospace !default;
 
 // colors
 $black: #333;
