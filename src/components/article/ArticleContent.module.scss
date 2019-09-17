@@ -150,11 +150,11 @@
   & > blockquote {
     font-family: $font-family-serif;
     font-size: 19px;
-    line-height: 36px;
+    line-height: 30px;
     margin-bottom: $gutter + $gutter-small;
     @include media-breakpoint-down(sm) {
       font-size: 17px;
-      line-height: 28px;
+      line-height: 26px;
       margin-bottom: $gutter;
     }
   }
@@ -165,6 +165,11 @@
     line-height: 32px;
     font-weight: 300;
     color: $secondary;
+    padding: 0 1em;
+    border-left: 4px solid $light-gray;
+    & > :last-child {
+      margin-bottom: 0;
+    }
     @include media-breakpoint-down(sm) {
       font-size: 17px;
       line-height: 28px;
@@ -178,17 +183,6 @@
     pre {
       margin-bottom: 0;
     }
-
-    code[class*='language-'],
-    pre[class*='language-'] {
-      font-family: $font-family-monospace;
-    }
-  }
-
-  :global(code[class*='language-']),
-  :global(pre[class*='language-']) {
-    font-size: 15px;
-    font-family: $font-family-monospace;
   }
 
   & > h1,
