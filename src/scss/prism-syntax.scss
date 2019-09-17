@@ -1,0 +1,89 @@
+@import 'variables';
+
+$background-color: #f6f8fa;
+
+code[class*='language-'],
+pre[class*='language-'] {
+  color: #24292e;
+  overflow: auto;
+  line-height: 1.45;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+/* Code blocks */
+pre[class*='language-'] {
+  padding: $gutter-small;
+  overflow: auto;
+  background-color: #f6f8fa;
+  word-break: normal;
+  word-wrap: normal;
+}
+
+/* Inline code */
+:not(pre) > code[class*='language-'] {
+  padding: 0.2em 0.4em;
+  margin: 0;
+  background: rgba(27, 31, 35, 0.05);
+}
+
+.gatsby-highlight {
+  .token {
+    &.comment,
+    &.prolog,
+    &.doctype,
+    &.cdata {
+      color: #959da5;
+    }
+
+    &.namespace {
+      opacity: 0.7;
+    }
+
+    &.string,
+    &.attr-value,
+    &.regex {
+      color: #032f62;
+    }
+
+    &.keyword,
+    &.operator,
+    &.script > &.script-punctuation {
+      color: #d73a49;
+    }
+
+    &.function,
+    &.script > &.keyword,
+    &.constant,
+    &.number,
+    &.boolean {
+      color: #005cc5;
+    }
+
+    &.punctuation + &.function:not(.function-variable),
+    &.attr-name,
+    &.selector,
+    &.class-name {
+      color: #6f42c1;
+    }
+
+    &.tag,
+    &.property {
+      color: #22863a;
+    }
+
+    &.punctuation,
+    &.script {
+      color: #24292e;
+    }
+
+    &.important,
+    &.bold {
+      font-weight: bold;
+    }
+
+    &.italic {
+      font-style: italic;
+    }
+  }
+}
