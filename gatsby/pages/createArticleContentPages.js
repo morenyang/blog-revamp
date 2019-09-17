@@ -28,9 +28,8 @@ const getArticleNodes = async graphql => {
   return edges.map(({ node }) => node)
 }
 
-const getPath = getPathBySlugFactory(`articles`)
-
 const createArticlePage = (createPage, node) => {
+  const getPath = getPathBySlugFactory(`articles`)
   createPage({
     path: getPath(node.fields.slug),
     component: path.resolve(`./src/templates/ArticleContentPageTemplate.js`),
