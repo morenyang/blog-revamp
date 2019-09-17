@@ -33,7 +33,6 @@
     "gatsby-transformer-sharp": "^2.2.6",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
-    "prism-themes": "^1.1.0",
     "prismjs": "^1.17.1",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
@@ -82,7 +81,7 @@
     "start:draft": "cross-env ENABLE_DRAFT=true yarn run develop",
     "serve": "yarn run clean && gatsby serve",
     "test": "jest --config jest/jest.config.js",
-    "test:coverage": "yarn run clean && CI=true jest --config jest/jest.config.js --coverage",
+    "test:coverage": "yarn run clean && cross-env CI=true jest --config jest/jest.config.js --coverage",
     "now-build": "yarn run clean && gatsby build"
   },
   "husky": {
@@ -91,7 +90,7 @@
     }
   },
   "lint-staged": {
-    "**/*.{js,jsx,json,scss}": [
+    "**/*.{js,jsx,json,scss,md}": [
       "prettier --write",
       "git add"
     ],
