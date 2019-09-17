@@ -48,7 +48,15 @@ const createCategoryPage = ({
     component: path.resolve(
       `./src/templates/ArticlesCategoriesPageTemplate.js`
     ),
-    context: createPageContext(category, currentPage, totalPages),
+    context: {
+      ...pageUtils.createPageContext({
+        currentPage,
+        totalPages,
+        elementsPerPage: postPerPage,
+        getPathByPage: page => getCategoryPathByPage(category, page),
+      }),
+      category,
+    },
   })
 }
 

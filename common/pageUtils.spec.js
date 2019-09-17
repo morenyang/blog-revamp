@@ -80,4 +80,36 @@ describe('Test pageUtils', () => {
       )
     })
   })
+
+  describe('Test createPageContext', () => {
+    it('should return correct arguments and call correct funcs', () => {
+      const currentPage = 2
+      const totalPages = 4
+      const elementsPerPage = 10
+      const getPathByPage = jest.fn()
+      getPathByPage.mockReturnValue('TEST_PATH')
+
+      const pageContext = pageUtils.createPageContext({
+        currentPage,
+        totalPages,
+        elementsPerPage,
+        getPathByPage,
+      })
+
+      expect(pageContext).toEqual({
+        totalPages,
+        currentPage,
+        pageSize: elementsPerPage,
+        postsOffset: 20,
+        prevPath: 'TEST_PATH',
+        nextPath: 'TEST_PATH',
+        hasPrev: true,
+        hasNext: true,
+      })
+
+      expect(getPathByPage).toHaveBeenCalledTimes(2)
+      expect(getPathByPage).toHaveBeenCalledWith(1)
+      expect(getPathByPage).toHaveBeenCalledWith(3)
+    })
+  })
 })

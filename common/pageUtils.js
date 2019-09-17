@@ -33,9 +33,26 @@ const hasPrevPage = currentPage => currentPage !== 0
 const getPageElementOffset = (currentPage, elementsPerPage) =>
   currentPage * elementsPerPage
 
+const createPageContext = ({
+  currentPage,
+  totalPages,
+  elementsPerPage,
+  getPathByPage,
+}) => ({
+  totalPages,
+  currentPage,
+  pageSize: elementsPerPage,
+  postsOffset: getPageElementOffset(currentPage, elementsPerPage),
+  prevPath: getPathByPage(currentPage - 1),
+  nextPath: getPathByPage(currentPage + 1),
+  hasPrev: hasPrevPage(currentPage),
+  hasNext: hasNextPage(currentPage, totalPages),
+})
+
 module.exports = {
   hasNextPage,
   hasPrevPage,
   getTotalPages,
   getPageElementOffset,
+  createPageContext,
 }

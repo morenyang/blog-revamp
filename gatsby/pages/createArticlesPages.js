@@ -36,7 +36,12 @@ const createArticlesPage = ({ createPage, currentPage, totalPages }) => {
   createPage({
     path: getPath(currentPage),
     component: path.resolve(`./src/templates/ArticlesPageTemplate.js`),
-    context: createPageContext(currentPage, totalPages),
+    context: pageUtils.createPageContext({
+      currentPage,
+      totalPages,
+      elementsPerPage: postPerPage,
+      getPathByPage: getPath,
+    }),
   })
 }
 
