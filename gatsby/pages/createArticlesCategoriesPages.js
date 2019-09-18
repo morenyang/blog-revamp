@@ -1,6 +1,7 @@
 const path = require('path')
 const siteConfig = require('../../site-config')
 const { getCategoryPathByPage } = require('../../common/routerHelper')
+const pageUtils = require('../../common/pageUtils')
 
 const postPerPage = siteConfig.postPerPage || 60
 
@@ -18,22 +19,8 @@ const getCategoriesAndCounts = async graphql => {
 
   return categoriesAndCounts.data.allMarkdownRemark.group.map(item => ({
     ...item,
-    totalPages: Math.ceil(item.totalCount / postPerPage),
+    totalPages: pageUtils.getTotalPages(item.totalCount, postPerPage),
   }))
-}
-
-const createPageContext = (category, currentPage, totalPages) => {
-  return {
-    totalPages,
-    currentPage,
-    pageSize: postPerPage,
-    postsOffset: currentPage * postPerPage,
-    prevPath: getCategoryPathByPage(category, currentPage - 1),
-    nextPath: getCategoryPathByPage(category, currentPage + 1),
-    hasPrev: currentPage !== 0,
-    hasNext: currentPage !== totalPages - 1,
-    category: category,
-  }
 }
 
 const createCategoryPage = ({
@@ -47,7 +34,15 @@ const createCategoryPage = ({
     component: path.resolve(
       `./src/templates/ArticlesCategoriesPageTemplate.js`
     ),
-    context: createPageContext(category, currentPage, totalPages),
+    context: {
+      ...pageUtils.createPageContext({
+        currentPage,
+        totalPages,
+        elementsPerPage: postPerPage,
+        getPathByPage: page => getCategoryPathByPage(category, page),
+      }),
+      category,
+    },
   })
 }
 
