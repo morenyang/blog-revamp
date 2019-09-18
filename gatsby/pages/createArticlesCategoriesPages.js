@@ -23,20 +23,6 @@ const getCategoriesAndCounts = async graphql => {
   }))
 }
 
-const createPageContext = (category, currentPage, totalPages) => {
-  return {
-    totalPages,
-    currentPage,
-    pageSize: postPerPage,
-    postsOffset: pageUtils.getPageElementOffset(currentPage, postPerPage),
-    prevPath: getCategoryPathByPage(category, currentPage - 1),
-    nextPath: getCategoryPathByPage(category, currentPage + 1),
-    hasPrev: pageUtils.hasPrevPage(currentPage),
-    hasNext: pageUtils.hasNextPage(currentPage, totalPages),
-    category: category,
-  }
-}
-
 const createCategoryPage = ({
   createPage,
   currentPage,
