@@ -23,7 +23,7 @@ describe('<ArticlesPageTemplate />', () => {
     expect(graphql).toBeCalledTimes(1)
     const articleListPage = wrapper.find(ArticleListPage)
 
-    expect(articleListPage).toBeTruthy()
+    expect(articleListPage).toHaveLength(1)
 
     expect(articleListPage.prop('articles')).toHaveLength(2)
     expect(articleListPage.prop('articles')).toEqual([{ id: 1 }, { id: 2 }])
