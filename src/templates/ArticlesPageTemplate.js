@@ -4,12 +4,18 @@ import ArticleListPage from '../components/article/ArticleListPage'
 import { resolveArticle } from '../utils/articles'
 
 const ArticlesPageTemplate = ({ data, pageContext }) => {
+  const { title, ...restPageContext } = pageContext
+
   const { edges } = data.allMarkdownRemark
 
   const articles = edges.map(({ node }) => resolveArticle(node))
 
   return (
-    <ArticleListPage title={'Articles'} articles={articles} {...pageContext} />
+    <ArticleListPage
+      title={'Articles'}
+      articles={articles}
+      {...restPageContext}
+    />
   )
 }
 

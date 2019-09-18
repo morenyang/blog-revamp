@@ -4,7 +4,7 @@ import { startCase } from 'lodash'
 import ArticleListPage from '../components/article/ArticleListPage'
 import { resolveArticle } from '../utils/articles'
 
-const ArticlesPageTemplate = ({ data, pageContext }) => {
+const ArticlesCategoriesPageTemplate = ({ data, pageContext }) => {
   const { edges } = data.allMarkdownRemark
 
   const category = startCase(pageContext.category)
@@ -16,7 +16,7 @@ const ArticlesPageTemplate = ({ data, pageContext }) => {
   )
 }
 
-export default ArticlesPageTemplate
+export default ArticlesCategoriesPageTemplate
 
 export const query = graphql`
   query ArticlesCategoriesPage(
