@@ -6,7 +6,6 @@ const siteConfig = require('../../site-config')
 
 jest.mock('../../common/routerHelper')
 jest.mock('path')
-jest.mock('../../common/pageUtils')
 jest.mock('../../site-config')
 
 describe('Test createArticlePages', () => {
@@ -15,6 +14,12 @@ describe('Test createArticlePages', () => {
     siteConfig.postPerPage = 10
 
     path.resolve.mockReturnValue('TEST_FILE_PATH')
+
+    jest.spyOn(pageUtils, 'getTotalPages').mockReturnValue(1)
+    jest.spyOn(pageUtils, 'hasNextPage').mockReturnValue(true)
+    jest.spyOn(pageUtils, 'hasPrevPage').mockReturnValue(true)
+    jest.spyOn(pageUtils, 'getPageElementOffset').mockReturnValue(0)
+    const createPageContext = jest.spyOn(pageUtils, 'createPageContext')
 
     const actions = {
       createPage: jest.fn(),
@@ -32,73 +37,45 @@ describe('Test createArticlePages', () => {
       },
     })
 
-    pageUtils.getTotalPages.mockReturnValue(2)
-    pageUtils.createPageContext.mockReturnValue({
-      totalPages: 1,
-      currentPage: 0,
-      pageSize: 10,
-      postsOffset: 0,
-      prevPath: 'TEST_PATH',
-      nextPath: 'TEST_PATH',
-      hasPrev: true,
-      hasNext: true,
-    })
-
     await createArticlesCategoriesPages({ graphql, actions })
 
     expect(graphql).toHaveBeenCalledTimes(1)
 
-    expect(routerHelper.getCategoryPathByPage).toHaveBeenCalledTimes(4)
-    expect(routerHelper.getCategoryPathByPage).toHaveBeenCalledWith(
-      'CATEGORY_NAME',
-      0
-    )
-    expect(routerHelper.getCategoryPathByPage).toHaveBeenCalledWith(
-      'CATEGORY_NAME',
-      1
-    )
-    expect(routerHelper.getCategoryPathByPage).toHaveBeenCalledWith(
-      'CATEGORY_NAME_1',
-      0
-    )
-    expect(routerHelper.getCategoryPathByPage).toHaveBeenCalledWith(
-      'CATEGORY_NAME_1',
-      1
-    )
+    expect(routerHelper.getCategoryPathByPage).toHaveBeenCalledTimes(6)
 
-    expect(pageUtils.createPageContext).toHaveBeenCalledTimes(4)
+    expect(createPageContext).toHaveBeenCalledTimes(2)
 
-    expect(actions.createPage).toHaveBeenCalledTimes(4)
+    expect(actions.createPage).toHaveBeenCalledTimes(2)
 
-    expect(actions.createPage).toHaveBeenCalledWith({
+    expect(actions.createPage.mock.calls[0][0]).toEqual({
       path: 'TEST_PATH',
       component: 'TEST_FILE_PATH',
       context: {
-        totalPages: 1,
+        category: 'CATEGORY_NAME',
         currentPage: 0,
-        pageSize: 10,
+        hasNext: false,
+        hasPrev: false,
+        nextPath: 'TEST_PATH',
+        pageSize: 30,
         postsOffset: 0,
         prevPath: 'TEST_PATH',
-        nextPath: 'TEST_PATH',
-        hasPrev: true,
-        hasNext: true,
-        category: 'CATEGORY_NAME',
+        totalPages: 1,
       },
     })
 
-    expect(actions.createPage).toHaveBeenCalledWith({
+    expect(actions.createPage.mock.calls[1][0]).toEqual({
       path: 'TEST_PATH',
       component: 'TEST_FILE_PATH',
       context: {
-        totalPages: 1,
+        category: 'CATEGORY_NAME_1',
         currentPage: 0,
-        pageSize: 10,
+        hasNext: false,
+        hasPrev: false,
+        nextPath: 'TEST_PATH',
+        pageSize: 30,
         postsOffset: 0,
         prevPath: 'TEST_PATH',
-        nextPath: 'TEST_PATH',
-        hasPrev: true,
-        hasNext: true,
-        category: 'CATEGORY_NAME_1',
+        totalPages: 1,
       },
     })
   })
