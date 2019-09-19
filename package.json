@@ -62,6 +62,7 @@
     "jest": "^24.9.0",
     "lint-staged": "^9.2.1",
     "prettier": "^1.18.2",
+    "prettier-plugin-java": "^0.3.2",
     "rimraf": "^2.7.0",
     "sass": "^1.22.9"
   },
@@ -70,11 +71,12 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "yarn run clean && gatsby build",
+    "build": "yarn run clean && yarn run format:content && gatsby build",
     "develop": "yarn run clean && gatsby develop",
     "clean": "rimraf .cache public coverage .eslintcache",
     "format": "prettier --write \"**/*.{js,jsx,json,md,scss}\"",
     "format:scripts": "prettier --write \"**/*.{js,jsx,json,scss}\"",
+    "format:content": "prettier --write \"content/**/*.md\"",
     "lint:scripts": "eslint --ext .js,.jsx .",
     "lint:scripts:report": "eslint -f json -o .eslintcache/report.json --ext .js,.jsx .",
     "start": "yarn run develop",
@@ -82,7 +84,7 @@
     "serve": "yarn run clean && gatsby serve",
     "test": "jest --config jest/jest.config.js",
     "test:coverage": "yarn run clean && cross-env CI=true jest --config jest/jest.config.js --coverage",
-    "now-build": "yarn run clean && gatsby build"
+    "now-build": "yarn run build"
   },
   "husky": {
     "hooks": {
