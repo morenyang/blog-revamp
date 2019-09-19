@@ -61,7 +61,7 @@ CoverImage.defaultProps = {
   aspectRatio: 0.5,
 }
 
-const loadResizeObserverPolyfills = WrappedComponent => {
+export const loadResizeObserverPolyfills = WrappedComponent => {
   function supportsResizeObserver() {
     try {
       return (
