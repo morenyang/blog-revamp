@@ -36,4 +36,9 @@ Pagination.propTypes = {
   nextPath: PropTypes.string,
 }
 
+Pagination.defaultProps = {
+  prevPath: '#',
+  nextPath: '#',
+}
+
 export default Pagination

@@ -1,10 +1,9 @@
 const path = require('path')
 const siteConfig = require('../../site-config')
 const { getPathByPageFactory } = require('../../common/routerHelper')
+const pageUtils = require('../../common/pageUtils')
 
 const postPerPage = siteConfig.postPerPage || 60
-
-const getPath = getPathByPageFactory('articles')
 
 const getTotalPages = async graphql => {
   const allMarkdownCount = await graphql(`
@@ -14,27 +13,24 @@ const getTotalPages = async graphql => {
       }
     }
   `)
-  return Math.ceil(
-    allMarkdownCount.data.allMarkdownRemark.totalCount / postPerPage
+  return pageUtils.getTotalPages(
+    allMarkdownCount.data.allMarkdownRemark.totalCount,
+    postPerPage
   )
 }
 
-const createPageContext = (currentPage, totalPages) => ({
-  totalPages,
-  currentPage,
-  pageSize: postPerPage,
-  postsOffset: currentPage * postPerPage,
-  prevPath: getPath(currentPage - 1),
-  nextPath: getPath(currentPage + 1),
-  hasPrev: currentPage !== 0,
-  hasNext: currentPage !== totalPages - 1,
-})
-
 const createArticlesPage = ({ createPage, currentPage, totalPages }) => {
+  const getPath = getPathByPageFactory('articles')
+
   createPage({
     path: getPath(currentPage),
     component: path.resolve(`./src/templates/ArticlesPageTemplate.js`),
-    context: createPageContext(currentPage, totalPages),
+    context: pageUtils.createPageContext({
+      currentPage,
+      totalPages,
+      elementsPerPage: postPerPage,
+      getPathByPage: getPath,
+    }),
   })
 }
 
