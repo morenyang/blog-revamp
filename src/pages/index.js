@@ -5,7 +5,7 @@ import { Layout, SEO } from '../components/framework'
 import HomepageBanner from '../components/homepage/HomepageBanner'
 import RecentArticles from '../components/homepage/RecentArticles'
 
-const IndexPage = () => (
+const Homepage = () => (
   <Layout className={styles.homepageLayout}>
     <SEO title="Home" />
     <HomepageBanner />
@@ -13,4 +13,4 @@ const IndexPage = () => (
   </Layout>
 )
 
-export default IndexPage
+export default Homepage
