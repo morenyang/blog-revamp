@@ -27,42 +27,45 @@ tags:
 这里我们的上传策略是，不从前端获取 key，文件名和路径前缀全部由后台来决定。参考代码：
 
 ```java
-
 class UploadController {
-    // AK和SK
-    private static final String AccessKey = "HelloWorld";
-    private static final String SecretKey = "HelloWorld";
-    // 存储空间的名字
-    private static final String Bucket = "BucketName";
-    // 存储空间的访问域名
-    private static final String BucketDomain = "//bucketName.bkt.clouddn.com";
-    // 七牛提供的上传域名
-    private static final String UploadAPI = "//upload-domain.qiniu.com";
-    @GetMapping("/getUpToken")
-    public Map<String, Object> getToken() throws Exception {
-        Map<String, Object> map = new HashMap<>();
-        boolean status = false;
-        try {
-            Auth auth = Auth.create(AccessKey, SecretKey);
+  // AK和SK
+  private static final String AccessKey = "HelloWorld";
+  private static final String SecretKey = "HelloWorld";
 
-            // 定义token过期时间
-            long expireSeconds = 3600;
+  // 存储空间的名字
+  private static final String Bucket = "BucketName";
 
-            // 定义上传策略
-            StringMap policy = new StringMap();
-            policy.put("saveKey", "img/$(etag)$(ext)");
+  // 存储空间的访问域名
+  private static final String BucketDomain = "//bucketName.bkt.clouddn.com";
 
-            String upToken = auth.uploadToken(Bucket, null, expireSeconds, policy);
-            map.put("uptoken", upToken);
-            map.put("bucketDomain", BucketDomain);
-            map.put("uploadAPI", UploadAPI);
-            status = true;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        map.put(APP_STATUS, status);
-        return map;
+  // 七牛提供的上传域名
+  private static final String UploadAPI = "//upload-domain.qiniu.com";
+
+  @GetMapping("/getUpToken")
+  public Map<String, Object> getToken() throws Exception {
+    Map<String, Object> map = new HashMap<>();
+    boolean status = false;
+    try {
+      Auth auth = Auth.create(AccessKey, SecretKey);
+
+      // 定义token过期时间
+      long expireSeconds = 3600;
+
+      // 定义上传策略
+      StringMap policy = new StringMap();
+      policy.put("saveKey", "img/$(etag)$(ext)");
+
+      String upToken = auth.uploadToken(Bucket, null, expireSeconds, policy);
+      map.put("uptoken", upToken);
+      map.put("bucketDomain", BucketDomain);
+      map.put("uploadAPI", UploadAPI);
+      status = true;
+    } catch (Exception e) {
+      e.printStackTrace();
     }
+    map.put(APP_STATUS, status);
+    return map;
+  }
 }
 ```
 
