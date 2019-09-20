@@ -3176,6 +3176,13 @@ cheerio@^1.0.0-rc.2:
     lodash "^4.15.0"
     parse5 "^3.0.1"
 
+chevrotain@4.7.0:
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/chevrotain/-/chevrotain-4.7.0.tgz#1a1acab4275cee8b1e208e6a10b1622c5b92b02e"
+  integrity sha512-FmXTi1hMN/6TT9NlrYP1kHHW6P7qpVzQD2vGrbsfI7wbFXXg2ANpIaN3pHPnVx/ZPHOnConE0TmyP6rguyzkZQ==
+  dependencies:
+    regexp-to-ast "0.4.0"
+
 chokidar@2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-2.1.2.tgz#9c23ea40b01638439e0513864d362aeacc5ad058"
@@ -8403,6 +8410,13 @@ iterall@^1.2.2:
   resolved "https://registry.yarnpkg.com/iterall/-/iterall-1.2.2.tgz#92d70deb8028e0c39ff3164fdbf4d8b088130cd7"
   integrity sha512-yynBb1g+RFUPY64fTrFv7nsjRrENBQJaX2UL+2Szc9REFrSNm1rpSXHGzhmAy7a9uv3vlvgBlXnf9RqmPH1/DA==
 
+java-parser@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/java-parser/-/java-parser-0.3.2.tgz#9510ba95535455142c3040f9d60d34d86d11ac69"
+  integrity sha512-4TQ2MNxq/8usHc4TQKAe7rX67M2rA2rc92+n/kyYAtjpCNQs9G6KGM2Ow1BdAEURyYsxAtWSny0lh+4PhuM0Jg==
+  dependencies:
+    chevrotain "4.7.0"
+
 jest-changed-files@^24.9.0:
   version "24.9.0"
   resolved "https://registry.yarnpkg.com/jest-changed-files/-/jest-changed-files-24.9.0.tgz#08d8c15eb79a7fa3fc98269bc14b451ee82f8039"
@@ -11541,7 +11555,15 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-prettier@^1.18.2:
+prettier-plugin-java@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/prettier-plugin-java/-/prettier-plugin-java-0.3.2.tgz#1715ced9c66992598ee4417a8ae516952ea8f07d"
+  integrity sha512-6DJqhVs/9dnmwz75ZvJpR+ZsbJV6zp7dKSkGtsgES0xp9NIemIr1yJTe0sFfyU2PQFagH6cwkP58tP+coX+uSA==
+  dependencies:
+    java-parser "^0.3.2"
+    prettier "1.18.2"
+
+prettier@1.18.2, prettier@^1.18.2:
   version "1.18.2"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.18.2.tgz#6823e7c5900017b4bd3acf46fe9ac4b4d7bda9ea"
   integrity sha512-OeHeMc0JhFE9idD4ZdtNibzY0+TPHSpSSb9h8FqtP+YnoZZ1sl8Vc9b1sasjfymH3SonAF4QcA2+mzHPhMvIiw==
@@ -12202,6 +12224,11 @@ regex-not@^1.0.0, regex-not@^1.0.2:
   dependencies:
     extend-shallow "^3.0.2"
     safe-regex "^1.1.0"
+
+regexp-to-ast@0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/regexp-to-ast/-/regexp-to-ast-0.4.0.tgz#f3dbcb42726cd71902ba50193f63eab5325cd7cb"
+  integrity sha512-4qf/7IsIKfSNHQXSwial1IFmfM1Cc/whNBQqRwe0V2stPe7KmN1U0tWQiIx6JiirgSrisjE0eECdNf7Tav1Ntw==
 
 regexp-tree@^0.1.13:
   version "0.1.13"
