@@ -6,14 +6,21 @@ import { Link } from 'gatsby'
 import moment from 'moment'
 import routerHelper from '../../utils/routerHelper'
 import { startCase } from 'lodash'
+import classnames from 'classnames'
 
 const getPath = routerHelper.getPathBySlugFactory(`articles`)
 
-const ArticleCard = ({ article }) => {
+const ArticleCard = ({ article, grids }) => {
   const { title, description, fields, date } = article
   const articleUrl = getPath(fields.slug)
   return (
-    <article className={styles.articleCard} id={`article-${article.id}`}>
+    <article
+      className={classnames(
+        styles.articleCard,
+        styles[`articleCardGrid${grids}`]
+      )}
+      id={`article-${article.id}`}
+    >
       {article.coverImage && (
         <Link to={articleUrl} className={styles.coverImageWrapper}>
           <CoverImage fluid={article.coverImage.childImageSharp.fluid} />
@@ -32,8 +39,8 @@ const ArticleCard = ({ article }) => {
         <span>{moment(date).format('MMMM DD, YYYY')}</span>
         <span className={styles.categories}>
           {article.fields.categories
-            .map(item => (
-              <Link to={`${item.link}`} className={styles.category}>
+            .map((item, index) => (
+              <Link key={index} to={`${item.link}`} className={styles.category}>
                 {startCase(item.category)}
               </Link>
             ))
@@ -49,6 +56,7 @@ const ArticleCard = ({ article }) => {
 }
 
 ArticleCard.propTypes = {
+  grids: PropTypes.oneOf([2, 3]),
   article: PropTypes.shape({
     title: PropTypes.string.isRequired,
     description: PropTypes.string,
@@ -63,6 +71,10 @@ ArticleCard.propTypes = {
       }).isRequired,
     }),
   }),
+}
+
+ArticleCard.defaultProps = {
+  grids: 3,
 }
 
 export default ArticleCard
