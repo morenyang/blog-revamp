@@ -23,21 +23,28 @@
   flex: 0 0 (1 / $n) * 100%;
 }
 
-.articleCard {
+.articleCardGrid3 {
   @include apply-article-card-grids(3);
+  @include media-breakpoint-up(lg) {
+    @include apply-article-card-border(3);
+  }
+  @include media-breakpoint-only(md) {
+    @include apply-article-card-grids(2);
+    @include apply-article-card-border(2);
+  }
+}
+
+.articleCardGrid2 {
+  @include apply-article-card-grids(2);
+  @include apply-article-card-border(2);
+}
+
+.articleCard {
   padding: $gutter;
   margin-bottom: $gutter-lg;
   display: flex;
   flex-direction: column;
 
-  @include media-breakpoint-up(lg) {
-    @include apply-article-card-border(3);
-  }
-
-  @include media-breakpoint-only(md) {
-    @include apply-article-card-grids(2);
-    @include apply-article-card-border(2);
-  }
   @include media-breakpoint-down(sm) {
     @include apply-article-card-grids(1);
     @include apply-article-card-border(1);

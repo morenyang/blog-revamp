@@ -1,0 +1,19 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+.recentArticles {
+  width: 100%;
+  max-width: $wrapper-max-width;
+  margin: $gutter auto;
+  height: 100%;
+  padding: 0 $gutter-lg;
+  @include media-breakpoint-down(sm) {
+    padding: 0 $gutter;
+  }
+}
+
+.sectionTitle {
+  font-size: 18px;
+  margin: $gutter 0;
+  font-weight: 900;
+}
