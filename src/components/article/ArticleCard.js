@@ -8,9 +8,8 @@ import routerHelper from '../../utils/routerHelper'
 import { startCase } from 'lodash'
 import classnames from 'classnames'
 
-const getPath = routerHelper.getPathBySlugFactory(`articles`)
-
 const ArticleCard = ({ article, grids }) => {
+  const getPath = routerHelper.getPathBySlugFactory(`articles`)
   const { title, description, fields, date } = article
   const articleUrl = getPath(fields.slug)
   return (
