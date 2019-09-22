@@ -144,7 +144,7 @@ Optional.of(foo)
 Optional.of(library)
   .map(Library::getBook)
   .map(Book::getAuthor)
-  .ifPresent(Sysout.out::println);
+  .ifPresent(System.out::println);
 ```
 
 类似的，`flatMap`方法也可以实现对容器中对象的操作，但返回的是新的对象本身。
