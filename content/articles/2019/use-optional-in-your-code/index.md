@@ -111,7 +111,7 @@ if(str.isPresent()){
 
 ```java
 Optional<String> str = Optional.of("Hello World");
-str.ifPresent(System::out.println)
+str.ifPresent(System.out::println)
 // -> Hello World
 ```
 
