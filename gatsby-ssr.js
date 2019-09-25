@@ -5,3 +5,6 @@
  */
 
 // You can delete this file if you're not using it
+import wrapWithProvider from './gatsby/wrapWithProvider'
+
+export const wrapRootElement = wrapWithProvider

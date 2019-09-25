@@ -41,7 +41,7 @@ export const TealBlue = {
   to: '#6078EA',
 }
 
-const gradientColors = {
+export default {
   DarkgreenGreen,
   LightgreenGreen,
   OrangeRed,
@@ -53,5 +53,3 @@ const gradientColors = {
   SteelPurple,
   TealBlue,
 }
-
-export default gradientColors

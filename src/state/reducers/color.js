@@ -5,11 +5,12 @@ import _ from 'lodash'
 function getRandomGradientColor(state = {}) {
   const gradientColorNames = Object.keys(gradientColors)
   if (
+    state &&
     state.gradient &&
     state.gradient.hasOwnProperty('name') &&
-    gradientColorNames.includes(color.gradient.name)
+    gradientColorNames.includes(state.gradient.name)
   ) {
-    _.remove(gradientColorNames, name => name === color.gradient.name)
+    _.remove(gradientColorNames, name => name === state.gradient.name)
   }
   const index = Math.floor(Math.random() * gradientColorNames.length)
   const gradientColorName = gradientColorNames[index]
