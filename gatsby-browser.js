@@ -5,6 +5,10 @@
  */
 
 // You can delete this file if you're not using it
-require('./src/scss/reboot.scss')
-require('./src/scss/public.scss')
-require('./src/scss/prism-syntax.scss')
+import wrapWithProvider from './gatsby/wrapWithProvider'
+
+import './src/scss/reboot.scss'
+import './src/scss/public.scss'
+import './src/scss/prism-syntax.scss'
+
+export const wrapRootElement = wrapWithProvider
