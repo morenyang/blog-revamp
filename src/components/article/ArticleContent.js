@@ -7,6 +7,8 @@ import moment from 'moment'
 import { Link } from 'gatsby'
 import { startCase } from 'lodash'
 
+import '../../scss/prism-syntax.scss'
+
 const ArticleContent = ({ article }) => {
   const { coverImage } = article
   return (
