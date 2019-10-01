@@ -2,8 +2,6 @@
 title: 'JS学习笔记 : 闭包'
 date: 2016-10-25
 foreword: 简单地理解JavaScript中闭包的概念
-categories:
-  - Javascript
 ---
 
 我们学习 JavaScript 的时候，常常会听到别人说 JS 有一个重要的性质就是闭包。闭包可以说确实是一个 JS 的重要特性，而且并不好理解。<!-- more -->
