@@ -79,16 +79,6 @@
   align-items: flex-end;
   flex-direction: column;
 
-  @mixin link {
-    a {
-      text-decoration: $blue solid underline;
-
-      &:hover {
-        color: $blue;
-      }
-    }
-  }
-
   & > p,
   & > h1,
   & > h2,
@@ -101,7 +91,6 @@
   & > div {
     width: calc(70% - (#{$gutter-lg} * 2));
     margin-right: $gutter-lg * 4;
-    @include link();
     @include media-breakpoint-down(lg) {
       width: calc(70% - #{$gutter-lg});
       margin-right: $gutter-lg * 2;
@@ -167,9 +156,11 @@
     color: $secondary;
     padding: 0 1em;
     border-left: 4px solid $light-gray;
+
     & > :last-child {
       margin-bottom: 0;
     }
+
     @include media-breakpoint-down(sm) {
       font-size: 17px;
       line-height: 28px;
@@ -193,8 +184,12 @@
   & > h6 {
     font-weight: 700;
     color: $black;
-    line-height: 36px;
+    line-height: 1.25;
     margin-bottom: $gutter + $gutter-small;
+    code,
+    code[class*='language-'] {
+      font-size: inherit;
+    }
     @include media-breakpoint-down(sm) {
       margin-bottom: $gutter + $gutter-small;
     }
@@ -227,9 +222,11 @@
   font-weight: 300;
   color: $secondary;
   font-size: 14px;
+
   .categories {
     margin-left: $gutter;
   }
+
   .category {
     color: $secondary;
   }
