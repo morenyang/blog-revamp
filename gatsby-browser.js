@@ -7,8 +7,7 @@
 // You can delete this file if you're not using it
 import wrapWithProvider from './gatsby/wrapWithProvider'
 
-import './src/scss/reboot.scss'
-import './src/scss/public.scss'
-import './src/scss/prism-syntax.scss'
+require('./src/scss/reboot.scss')
+require('./src/scss/public.scss')
 
 export const wrapRootElement = wrapWithProvider

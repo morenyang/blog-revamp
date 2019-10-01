@@ -8,6 +8,8 @@ import { Link } from 'gatsby'
 import { startCase } from 'lodash'
 import { ColorfulLinkWrapper } from '../common/ColorfulLink'
 
+import '../../scss/prism-syntax.scss'
+
 const ArticleContent = ({ article }) => {
   const { coverImage } = article
   return (
