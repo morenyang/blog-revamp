@@ -1,22 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Group } from '@vx/group'
 import { LinePath } from '@vx/shape'
 import { curveMonotoneX } from '@vx/curve'
 import { genDateValue } from '@vx/mock-data'
 import { scaleTime, scaleLinear } from '@vx/scale'
-import {
-  GradientDarkgreenGreen,
-  GradientLightgreenGreen,
-  GradientOrangeRed,
-  GradientPinkBlue,
-  GradientPinkRed,
-  GradientPurpleOrange,
-  GradientPurpleRed,
-  GradientPurpleTeal,
-  GradientSteelPurple,
-  GradientTealBlue,
-} from '@vx/gradient'
+import { LinearGradient } from '@vx/gradient'
 import { extent, max } from 'd3-array'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { randomGradientColor } from '../../state/actions/color'
 
 function genLines(num) {
   return new Array(num).fill(1).map(() => {
@@ -33,7 +25,13 @@ const data = series.reduce((rec, d) => {
 const x = d => d.date
 const y = d => d.value
 
-const HomePageBannerGallery = ({ width, height }) => {
+const HomePageBannerGallery = ({
+  width,
+  height,
+  isGradient,
+  gradient,
+  randomGradientColor: randomGradient,
+}) => {
   // bounds
   const xMax = width
   const yMax = height / 6
@@ -48,43 +46,15 @@ const HomePageBannerGallery = ({ width, height }) => {
     domain: [0, max(data, y)],
   })
 
-  const gradientGroup = {
-    GradientDarkgreenGreen,
-    GradientLightgreenGreen,
-    GradientOrangeRed,
-    GradientPinkBlue,
-    GradientPinkRed,
-    GradientPurpleOrange,
-    GradientPurpleRed,
-    GradientPurpleTeal,
-    GradientSteelPurple,
-    GradientTealBlue,
-  }
-
-  let gradientName = '',
-    setGradientName
-
-  function getRandomGradientName() {
-    const names = Object.keys(gradientGroup).filter(
-      item => item !== gradientName
-    )
-    const index = Math.floor(Math.random() * names.length)
-    return names[index]
-  }
-
-  const _useStateGradientName = useState(getRandomGradientName())
-  gradientName = _useStateGradientName[0]
-  setGradientName = _useStateGradientName[1]
-
-  const Gradient = gradientGroup[gradientName]
-
   const handleClick = () => {
-    setGradientName(getRandomGradientName())
+    randomGradient()
   }
+
+  const gradientProps = isGradient ? gradient : { from: '#777', to: '#777' }
 
   return (
     <svg width={width} height={height} onClick={handleClick}>
-      <Gradient id="stroke" />
+      <LinearGradient {...gradientProps} id="stroke" />
       <rect x={0} y={0} width={width} height={height} fill="rgba(0,0,0,0)" />
       {xMax > 8 &&
         series.map((d, i) => {
@@ -105,4 +75,18 @@ const HomePageBannerGallery = ({ width, height }) => {
   )
 }
 
-export default HomePageBannerGallery
+const mapStateToProps = ({ color }) => ({
+  isGradient: color.isGradient,
+  gradient: color.gradient,
+})
+
+const mapDispatchToProps = dispatch => {
+  return {
+    randomGradientColor: bindActionCreators(randomGradientColor, dispatch),
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HomePageBannerGallery)

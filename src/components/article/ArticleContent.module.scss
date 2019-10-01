@@ -79,16 +79,6 @@
   align-items: flex-end;
   flex-direction: column;
 
-  @mixin link {
-    a {
-      text-decoration: $blue solid underline;
-
-      &:hover {
-        color: $blue;
-      }
-    }
-  }
-
   & > p,
   & > h1,
   & > h2,
@@ -101,7 +91,6 @@
   & > div {
     width: calc(70% - (#{$gutter-lg} * 2));
     margin-right: $gutter-lg * 4;
-    @include link();
     @include media-breakpoint-down(lg) {
       width: calc(70% - #{$gutter-lg});
       margin-right: $gutter-lg * 2;

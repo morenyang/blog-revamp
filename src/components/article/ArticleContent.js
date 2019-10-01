@@ -6,6 +6,7 @@ import classnames from 'classnames'
 import moment from 'moment'
 import { Link } from 'gatsby'
 import { startCase } from 'lodash'
+import { ColorfulLinkWrapper } from '../common/ColorfulLink'
 
 import '../../scss/prism-syntax.scss'
 
@@ -31,9 +32,9 @@ const ArticleContent = ({ article }) => {
             {moment(article.date).format('MMMM DD, YYYY')}
             <span className={styles.categories}>
               {article.fields.categories
-                .map(item => (
+                .map((item, index) => (
                   <Link
-                    key={item}
+                    key={index}
                     to={`${item.link}`}
                     className={styles.category}
                   >
@@ -50,7 +51,7 @@ const ArticleContent = ({ article }) => {
         </div>
       </div>
       <div className={styles.articleContent}>
-        <div
+        <ColorfulLinkWrapper
           className={styles.articleContentInner}
           dangerouslySetInnerHTML={{ __html: article.html }}
         />
