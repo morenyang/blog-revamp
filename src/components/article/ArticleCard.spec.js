@@ -100,7 +100,9 @@ describe('<ArtileCard />', () => {
       expect(startCase.mock.calls[0][0]).toBe('TEST_CATEGORY')
       expect(startCase.mock.calls[1][0]).toBe('TEST_CATEGORY_2')
 
-      expect(categoriesWrapper.text()).toBe(`CATEGORY_NAME, CATEGORY_NAME`)
+      expect(categoriesWrapper.render().text()).toBe(
+        `CATEGORY_NAME, CATEGORY_NAME`
+      )
     })
   })
 

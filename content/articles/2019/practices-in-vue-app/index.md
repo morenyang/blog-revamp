@@ -149,23 +149,24 @@ export default {
 
 ```js
 // store.actions
-bar ({commit}){
+const actions = {
+  bar({ commit }) {
     // return Promise
-    return api.fetchList()
-     .then(res => {
-        commit('UPDATE_LIST', res)
-        console.log('update store')
-     })
+    return api.fetchList().then(res => {
+      commit('UPDATE_LIST', res)
+      console.log('update store')
+    })
+  },
 }
 
 // component
 export default {
-    methods: {
-        async cool(){
-            await this.$store.dispatch('bar')
-            console.log('success')
-        }
-    }
+  methods: {
+    async cool() {
+      await this.$store.dispatch('bar')
+      console.log('success')
+    },
+  },
 }
 
 // output:

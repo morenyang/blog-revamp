@@ -6,7 +6,7 @@ import classnames from 'classnames'
 import moment from 'moment'
 import { Link } from 'gatsby'
 import { startCase } from 'lodash'
-import { ColorfulLinkWrapper } from '../common/ColorfulLink'
+import { ColorfulLinkWrapper } from '../common/ColorfulText'
 
 import '../../scss/prism-syntax.scss'
 
