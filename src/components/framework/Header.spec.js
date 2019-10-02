@@ -23,7 +23,7 @@ describe('<Header />', () => {
     expect(title).toHaveLength(1)
     expect(title.find(Link)).toHaveLength(1)
     expect(title.find(Link).prop('to')).toBe('/')
-    expect(title.text()).toBe('SITE_TITLE')
+    expect(title.render().text()).toBe('SITE_TITLE')
 
     const items = wrapper.find('header>nav>ul').at(0)
     expect(items).toHaveLength(1)
@@ -39,6 +39,7 @@ describe('<Header />', () => {
       items
         .find(Link)
         .at(0)
+        .render()
         .text()
     ).toBe('ITEM')
 
@@ -52,6 +53,7 @@ describe('<Header />', () => {
       items
         .find(Link)
         .at(1)
+        .render()
         .text()
     ).toBe('ITEM2')
   })

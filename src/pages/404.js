@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Layout, SEO } from '../components/framework'
 import styles from './404.module.scss'
 import { Link } from 'gatsby'
+import { ColorfulText } from '../components/common/ColorfulText'
 
 export default () => {
   const [pathname, setPathname] = useState(undefined)
@@ -14,7 +15,9 @@ export default () => {
     <Layout>
       <SEO title="404: Not found" />
       <div className={styles.notFoundPage}>
-        <h1>Oops!</h1>
+        <h1>
+          Oops<ColorfulText enableClick={true}>!</ColorfulText>
+        </h1>
         <h2 className={styles.errorTitle}>404 Page Not Found</h2>
         <p className={styles.errorDescription}>
           The requested URL
