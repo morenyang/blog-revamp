@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { randomGradientColor } from '../../state/actions/color'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 
 const mapStateToProps = ({ color }) => ({
   isGradient: color.isGradient,
@@ -93,6 +92,3 @@ const WrappedColorfulText = styled(ColorfulTextInner)`
 `
 
 export const ColorfulText = connectComponent(WrappedColorfulText)
-ColorfulText.propTypes = {
-  enableClick: PropTypes.boolean,
-}

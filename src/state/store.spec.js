@@ -1,9 +1,9 @@
 import store from './store'
-import * as redux from 'redux'
-
-const createStore = jest.spyOn(redux, 'createStore')
 
 describe('Test store', () => {
+  beforeEach(() => {
+    process.env.NODE_ENV = 'test'
+  })
   it('should be defined', () => {
     expect(store).toBeDefined()
   })
