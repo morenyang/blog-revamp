@@ -2,12 +2,13 @@ import { COLOR } from '../actionTypes'
 import gradientColors from '../../constants/gradientColors'
 import _ from 'lodash'
 
-function getRandomGradientColor(state = {}) {
+export const getRandomGradientColor = (state = {}) => {
   const gradientColorNames = Object.keys(gradientColors)
   if (
     state &&
     state.gradient &&
     state.gradient.hasOwnProperty('name') &&
+    gradientColorNames.length > 1 &&
     gradientColorNames.includes(state.gradient.name)
   ) {
     _.remove(gradientColorNames, name => name === state.gradient.name)

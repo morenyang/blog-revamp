@@ -28,7 +28,7 @@ const getStyledLinkHover = props => `
     ${
       props.isGradient
         ? `
-    background-image: linear-gradient(to right, ${props.gradient.from}, ${props.gradient.to});
+    background-image: linear-gradient(45deg, ${props.gradient.from} 50%, ${props.gradient.to});
     -webkit-text-fill-color: transparent;
     background-clip: text;
     -webkit-background-clip: text;`

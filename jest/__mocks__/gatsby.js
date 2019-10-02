@@ -2,7 +2,7 @@ const React = require('react')
 const gatsby = jest.requireActual('gatsby')
 module.exports = {
   ...gatsby,
-  graphql: jest.fn(),
+  graphql: jest.fn().mockReturnValue({ value: 'MOCK_GRAPHQL' }),
   Link: jest.fn().mockImplementation(
     // these props are invalid for an `a` tag
     ({
@@ -14,12 +14,13 @@ module.exports = {
       ref,
       replace,
       to,
+      children,
       ...rest
-    }) =>
-      React.createElement('a', {
-        ...rest,
-        href: to,
-      })
+    }) => (
+      <a href={to} {...rest}>
+        {children}
+      </a>
+    )
   ),
   StaticQuery: jest.fn(),
   useStaticQuery: jest.fn(),
