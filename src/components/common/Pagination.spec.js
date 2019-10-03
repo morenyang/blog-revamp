@@ -27,7 +27,12 @@ describe('<Pagination />', () => {
     const wrapper = shallow(<Pagination {...props} />)
     expect(wrapper.find(Link)).toHaveLength(1)
     expect(wrapper.find(Link).prop('to')).toEqual('TEST_PATH')
-    expect(wrapper.find(Link).text()).toContain('Prev')
+    expect(
+      wrapper
+        .find(Link)
+        .render()
+        .text()
+    ).toContain('Prev')
   })
 
   it('should render only Next button given hasPrev is false and hasNext is true', () => {
@@ -40,7 +45,12 @@ describe('<Pagination />', () => {
     const wrapper = shallow(<Pagination {...props} />)
     expect(wrapper.find(Link)).toHaveLength(1)
     expect(wrapper.find(Link).prop('to')).toEqual('TEST_PATH')
-    expect(wrapper.find(Link).text()).toContain('Next')
+    expect(
+      wrapper
+        .find(Link)
+        .render()
+        .text()
+    ).toContain('Next')
   })
 
   it('should render both Prev and Next button given hasPrev is true and hasNext is true', () => {
@@ -64,6 +74,7 @@ describe('<Pagination />', () => {
       wrapper
         .find(Link)
         .at(0)
+        .render()
         .text()
     ).toContain('Prev')
 
@@ -77,6 +88,7 @@ describe('<Pagination />', () => {
       wrapper
         .find(Link)
         .at(1)
+        .render()
         .text()
     ).toContain('Next')
   })

@@ -21,8 +21,12 @@
     "gatsby-plugin-manifest": "^2.2.5",
     "gatsby-plugin-offline": "^2.2.5",
     "gatsby-plugin-react-helmet": "^3.1.3",
+    "gatsby-plugin-sass": "^2.1.17",
     "gatsby-plugin-sharp": "^2.2.11",
+    "gatsby-plugin-styled-components": "^3.1.8",
+    "gatsby-remark-autolink-headers": "^2.1.13",
     "gatsby-remark-copy-linked-files": "^2.1.5",
+    "gatsby-remark-external-links": "^0.0.4",
     "gatsby-remark-images": "^3.1.10",
     "gatsby-remark-prismjs": "^3.3.5",
     "gatsby-remark-responsive-iframe": "^2.2.4",
@@ -33,17 +37,24 @@
     "gatsby-transformer-sharp": "^2.2.6",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
+    "prettier": "^1.18.2",
+    "prettier-plugin-java": "^0.3.2",
     "prismjs": "^1.17.1",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1",
-    "resize-observer-polyfill": "^1.5.1"
+    "react-redux": "^7.1.1",
+    "redux": "^4.0.4",
+    "resize-observer-polyfill": "^1.5.1",
+    "sass": "^1.22.12",
+    "styled-components": "^4.4.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.2",
     "babel-jest": "^24.9.0",
     "babel-preset-gatsby": "^0.2.13",
+    "chalk": "^2.4.2",
     "cross-env": "^5.2.1",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
@@ -56,15 +67,12 @@
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^1.7.0",
-    "gatsby-plugin-sass": "^2.1.8",
+    "fs-extra": "^8.1.0",
     "husky": "^3.0.3",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
     "lint-staged": "^9.2.1",
-    "prettier": "^1.18.2",
-    "prettier-plugin-java": "^0.3.2",
-    "rimraf": "^2.7.0",
-    "sass": "^1.22.9"
+    "rimraf": "^2.7.0"
   },
   "keywords": [
     "gatsby"
@@ -84,7 +92,9 @@
     "serve": "yarn run clean && gatsby serve",
     "test": "jest --config jest/jest.config.js",
     "test:coverage": "yarn run clean && cross-env CI=true jest --config jest/jest.config.js --coverage",
-    "now-build": "yarn run build"
+    "now-build": "yarn run build",
+    "new": "node scripts/new",
+    "pub": "node scripts/publish"
   },
   "husky": {
     "hooks": {

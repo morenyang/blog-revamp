@@ -53,9 +53,17 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
+          `gatsby-remark-autolink-headers`,
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
+          {
+            resolve: 'gatsby-remark-external-links',
+            options: {
+              target: '_blank',
+              rel: 'nofollow noreferrer',
+            },
+          },
         ],
       },
     },
@@ -87,6 +95,10 @@ module.exports = {
               : '[name]__[local]--[hash:base64:5]',
         },
       },
+    },
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {},
     },
   ],
 }
