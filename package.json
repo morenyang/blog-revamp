@@ -24,7 +24,9 @@
     "gatsby-plugin-sass": "^2.1.17",
     "gatsby-plugin-sharp": "^2.2.11",
     "gatsby-plugin-styled-components": "^3.1.8",
+    "gatsby-remark-autolink-headers": "^2.1.13",
     "gatsby-remark-copy-linked-files": "^2.1.5",
+    "gatsby-remark-external-links": "^0.0.4",
     "gatsby-remark-images": "^3.1.10",
     "gatsby-remark-prismjs": "^3.3.5",
     "gatsby-remark-responsive-iframe": "^2.2.4",
@@ -52,6 +54,7 @@
     "babel-eslint": "^10.0.2",
     "babel-jest": "^24.9.0",
     "babel-preset-gatsby": "^0.2.13",
+    "chalk": "^2.4.2",
     "cross-env": "^5.2.1",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
@@ -64,6 +67,7 @@
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "fs-extra": "^8.1.0",
     "husky": "^3.0.3",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
@@ -88,7 +92,9 @@
     "serve": "yarn run clean && gatsby serve",
     "test": "jest --config jest/jest.config.js",
     "test:coverage": "yarn run clean && cross-env CI=true jest --config jest/jest.config.js --coverage",
-    "now-build": "yarn run build"
+    "now-build": "yarn run build",
+    "new": "node scripts/new",
+    "pub": "node scripts/publish"
   },
   "husky": {
     "hooks": {

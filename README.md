@@ -18,4 +18,10 @@ This website was built with [Gatsby](https://www.gatsbyjs.org/). If you want to 
 1. Run `yarn start` to start dev server.
 2. Open `http://localhost:8000` in your browser.
 
-If you want to see your drafts, you can run `yarn start:draft`.
+If you want to see the drafts, run `yarn start:draft`.
+
+## License
+
+Licensed under the [MIT License](./LICENSE).
+
+Content on the [website](https://blog.yangteng.me/) is [CC-BY-NC-4.0 licensed](./LICENSE-DOCS).
