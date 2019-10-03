@@ -1,0 +1,61 @@
+#!/usr/bin/env node
+const fs = require('fs-extra')
+const path = require('path')
+const moment = require('moment')
+const chalk = require('chalk')
+
+const args = process.argv.slice(2)
+
+const [title] = args
+
+if (!title) {
+  console.error(chalk`{red Error} Please input article title. \n`)
+  process.exit(1)
+}
+
+// origin dir & file check
+const originArticleDir = path.resolve(
+  __dirname,
+  `../content/articles/__drafts`,
+  title
+)
+
+const originArticleFile = path.resolve(originArticleDir, 'index.md')
+
+if (!fs.existsSync(originArticleDir)) {
+  console.error(
+    chalk`{red Error} Can not find file ${originArticleFile}, please check article name. \n`
+  )
+  process.exit(1)
+}
+
+// dest dir & file check
+const destDir = path.resolve(
+  __dirname,
+  `../content/articles/${moment().year()}`,
+  title
+)
+
+const destFile = path.resolve(destDir, 'index.md')
+
+if (fs.existsSync(destFile)) {
+  console.error(chalk`{red Error} File ${destFile} is already existed \n`)
+  process.exit(1)
+}
+
+// update front-matter
+console.log(chalk`{yellow Loading} 📝 Updating draft front-matter. `)
+
+const rawArticle = fs.readFileSync(originArticleFile)
+const article = String(rawArticle)
+
+const resolvedArticle = article
+  .replace(/date: .+\n/, `date: '${moment().format('YYYY-MM-DD')}'\n`)
+  .replace(/draft: .+\n/, ``)
+
+console.log(chalk`{yellow Loading} 🚚 Moving files. `)
+fs.outputFileSync(originArticleFile, resolvedArticle, 'utf8')
+
+fs.moveSync(originArticleDir, destDir, { overwrite: true })
+console.log(chalk`{green Success} 🌈 Moved directory to ${destDir}. \n`)
+process.exit(0)
