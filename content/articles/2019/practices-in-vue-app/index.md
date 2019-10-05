@@ -122,22 +122,23 @@ export default {
 
 ```js
 // store.actions
-foo ({commit}){
-    api.fetchList()
-     .then(res => {
-        commit('UPDATE_LIST', res)
-        console.log('update store')
-     })
+const actions = {
+  foo({ commit }) {
+    api.fetchList().then(res => {
+      commit('UPDATE_LIST', res)
+      console.log('update store')
+    })
+  },
 }
 
 // component
 export default {
-    methods: {
-        async cool(){
-            await this.$store.dispatch('foo')
-            console.log('success')
-        }
-    }
+  methods: {
+    async cool() {
+      await this.$store.dispatch('foo')
+      console.log('success')
+    },
+  },
 }
 
 // output:

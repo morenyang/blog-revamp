@@ -6,4 +6,6 @@ module.exports = {
   postPerPage: 30,
 
   headerLinks: [{ name: 'Articles', path: '/articles' }],
+
+  googleAnalyticsTrackingId: 'UA-149417490-1',
 }
