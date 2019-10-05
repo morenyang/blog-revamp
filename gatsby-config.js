@@ -100,5 +100,13 @@ module.exports = {
       resolve: `gatsby-plugin-styled-components`,
       options: {},
     },
-  ],
+    siteConfig.googleAnalyticsTrackingId && {
+      resolve: `gatsby-plugin-gtag`,
+      options: {
+        trackingId: siteConfig.googleAnalyticsTrackingId,
+        head: false,
+        anonymize: true,
+      },
+    },
+  ].filter(Boolean),
 }
