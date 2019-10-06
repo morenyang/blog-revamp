@@ -1,7 +1,6 @@
 ---
 title: 'JS学习笔记 : 箭头函数'
 date: '2019-10-06'
-draft: true
 description: 'What about this?'
 ---
 
@@ -74,7 +73,7 @@ function Timer() {
 }
 ```
 
-在上面的例子中，`increase`函数想要表达的真实意图应该是`this.times++`，当由于`function`函数总会自带`this`作用域，不得依赖一个中间变量`_self`来使内部函数获取外部函数的`this`。
+在上面的例子中，`increase`函数想要表达的真实意图应该是`this.times++`，但由于`function`函数总会自带`this`作用域，不得依赖一个中间变量`_self`来使内部函数获取外部函数的`this`。
 
 如果使用箭头函数，就可以去掉`this`作用域的 hack：
 
