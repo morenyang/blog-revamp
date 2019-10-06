@@ -32,7 +32,7 @@ name=xiaoming&age=18
 
 一种是在 http 请求的头部指定 Content-Type，例如：
 
-```javascirpt
+```javascript
 import axios from 'axios'
 function post(data){
     let url = '/api/fakeapi';
@@ -42,12 +42,12 @@ function post(data){
 
 或者是在发出请求前将 JSON 数据改为 urlencode 格式，例如：
 
-```javascirpt
+```javascript
 import axios from 'axios'
 import qs from 'qs'
-function post(data){
-    let url = '/api/fakeapi';
-    return axios.post(url, qs.stringify(data));
+function post(data) {
+  let url = '/api/fakeapi'
+  return axios.post(url, qs.stringify(data))
 }
 ```
 
