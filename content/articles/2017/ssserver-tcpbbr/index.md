@@ -42,7 +42,7 @@ wget http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.10.13/linux-image-4.10.13-
 
 > 文件名你可以只输入前几个字母然后按 tab 键自动补齐
 
-```bahs
+```bash
 dpkg -i linux-image-4.10.13-041013-generic_4.10.13-041013.201704290147_amd64.deb
 ```
 
