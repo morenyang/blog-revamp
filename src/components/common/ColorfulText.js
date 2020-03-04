@@ -16,10 +16,7 @@ const mapDispatchToProps = dispatch => {
 }
 
 const connectComponent = component =>
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(component)
+  connect(mapStateToProps, mapDispatchToProps)(component)
 
 const getTextDecoration = props =>
   `text-decoration: ${
