@@ -72,3 +72,5 @@ yarn-error.log
 .vscode
 
 test-report.xml
+
+.now

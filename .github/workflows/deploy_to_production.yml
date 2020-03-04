@@ -1,0 +1,23 @@
+name: Deploy to production
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Deploy on now
+      uses: amondnet/now-deployment@v2.0.1
+      with:
+        now-args: --prod
+        zeit-token:  ${{secrets.ZEIT_TOKEN}}
+        github-comment: true
+        github-token:  ${{secrets.GITHUB_TOKEN}}
+        now-project-id:  ${{secrets.NOW_PROJECT_ID}}
+        now-org-id: ${{secrets.NOW_ORG_ID}}

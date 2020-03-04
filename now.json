@@ -16,6 +16,6 @@
     { "src": "/.*", "status": 404, "dest": "/404.html" }
   ],
   "github": {
-    "enabled": false
+    "enabled": true
   }
 }
