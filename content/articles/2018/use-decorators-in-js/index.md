@@ -162,19 +162,13 @@ class Comp extends React.Component {
   }
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(MyReactComponent)
+export default connect(mapStateToProps, mapDispatchToProps)(MyReactComponent)
 ```
 
 而如果使用了修饰器，则可以这么写：
 
 ```js
-@(connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(MyReactComponent))
+@(connect(mapStateToProps, mapDispatchToProps)(MyReactComponent))
 class Comp extends React.Component {
   // ...
 }

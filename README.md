@@ -4,7 +4,7 @@ Cool things inside.
 
 ---
 
-This website was built with [Gatsby](https://www.gatsbyjs.org/). If you want to use this website as a starter, you can clone the [`feature`](https://github.com/morenyang/blog/tree/feature) branch.
+This website was built with [Gatsby](https://www.gatsbyjs.org/). To use this website as a starter, please clone the repository and remove contents in `content` folder.
 
 ## Getting started
 
