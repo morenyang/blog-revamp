@@ -1,0 +1,36 @@
+name: lint_and_test
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  lintAndTest:
+    name: Lint and Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+
+      - name: Setup yarn
+        run: npm install -g yarn
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Lint
+        run: yarn run lint:scripts:report
+
+      - name: Test
+        run: yarn run test:coverage
+
+      - name: Codecov Scan
+        uses: codecov/codecov-action@v1.0.2
+        with:
+          token: ${{secrets.CODECOV_TOKEN}}
+
+  
