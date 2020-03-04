@@ -1,4 +1,4 @@
-name: lint_and_test
+name: Lint and test
 
 on:
   - push
@@ -32,5 +32,8 @@ jobs:
         uses: codecov/codecov-action@v1.0.2
         with:
           token: ${{secrets.CODECOV_TOKEN}}
+      
+      - name: Build Test
+        run: yarn build
 
   
