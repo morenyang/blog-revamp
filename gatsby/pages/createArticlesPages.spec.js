@@ -14,7 +14,7 @@ describe('Test createArticlePages', () => {
     const getPath = jest.fn()
     getPath.mockReturnValue('TEST_PATH')
     routerHelper.getPathByPageFactory.mockReturnValue(getPath)
-    siteConfig.postPerPage = 10
+
     path.resolve.mockReturnValue('TEST_FILE_PATH')
 
     pageUtils.getTotalPages.mockReturnValue(2)
@@ -53,13 +53,13 @@ describe('Test createArticlePages', () => {
     expect(pageUtils.createPageContext).toHaveBeenCalledTimes(2)
     expect(pageUtils.createPageContext).toHaveBeenCalledWith({
       currentPage: 0,
-      elementsPerPage: 30,
+      elementsPerPage: siteConfig.postPerPage,
       getPathByPage: getPath,
       totalPages: 2,
     })
     expect(pageUtils.createPageContext).toHaveBeenCalledWith({
       currentPage: 1,
-      elementsPerPage: 30,
+      elementsPerPage: siteConfig.postPerPage,
       getPathByPage: getPath,
       totalPages: 2,
     })
