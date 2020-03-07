@@ -21,7 +21,7 @@ export const getRandomGradientColor = (state = {}) => {
   }
 }
 
-const initialState = {
+export const initialState = {
   isGradient: true,
   gradient: getRandomGradientColor(),
 }

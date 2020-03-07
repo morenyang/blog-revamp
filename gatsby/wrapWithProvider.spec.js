@@ -1,13 +1,10 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import wrapWithProvider from './wrapWithProvider'
-import * as reactRedux from 'react-redux'
+import * as ThemeProvider from '../src/components/framework/ThemeProvider'
 
-jest.mock('../src/state/store', () => ({
-  default: '',
-}))
 jest
-  .spyOn(reactRedux, 'Provider')
+  .spyOn(ThemeProvider, 'default')
   .mockImplementation(({ children: _children }) => (
     <div className="provider">{_children}</div>
   ))
