@@ -13,6 +13,7 @@ const Layout = ({ children, className }) => {
         siteMetadata {
           title
           author
+          source
           headerLinks {
             name
             path
@@ -33,7 +34,7 @@ const Layout = ({ children, className }) => {
       <div className={classnames(styles.mainWrapper, className)}>
         <main>{children}</main>
       </div>
-      <Footer author={siteMetadata.author} />
+      <Footer author={siteMetadata.author} source={siteMetadata.source} />
     </div>
   )
 }
