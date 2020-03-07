@@ -27,7 +27,11 @@ export const query = graphql`
       limit: $pageSize
       skip: $postsOffset
       filter: {
-        fields: { collection: { eq: "article" }, released: { ne: false } }
+        fields: {
+          collection: { eq: "article" }
+          released: { ne: false }
+          shadow: { ne: true }
+        }
       }
       sort: { order: DESC, fields: [frontmatter___date] }
     ) {

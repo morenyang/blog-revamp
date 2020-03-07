@@ -1,22 +1,21 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import { randomGradientColor } from '../../state/actions/color'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
+import { ThemeContext } from '../framework/ThemeProvider'
 
-const mapStateToProps = ({ color }) => ({
-  isGradient: color.isGradient,
-  gradient: color.gradient,
-})
-
-const mapDispatchToProps = dispatch => {
-  return {
-    randomGradientColor: bindActionCreators(randomGradientColor, dispatch),
+const connectComponent = component => {
+  return props => {
+    const { dispatch, ...themeProperties } = useContext(ThemeContext)
+    const randomGradientColor = () => dispatch(randomGradientColor())
+    const Component = component
+    return (
+      <Component
+        {...props}
+        {...themeProperties}
+        randomGradientColor={randomGradientColor}
+      />
+    )
   }
 }
-
-const connectComponent = component =>
-  connect(mapStateToProps, mapDispatchToProps)(component)
 
 const getTextDecoration = props =>
   `text-decoration: ${

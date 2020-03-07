@@ -32,6 +32,7 @@ export const query = graphql`
           categories: { elemMatch: { category: { in: [$category] } } }
           collection: { eq: "article" }
           released: { ne: false }
+          shadow: { ne: true }
         }
       }
       sort: { order: DESC, fields: [frontmatter___date] }

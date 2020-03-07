@@ -1,4 +1,4 @@
-const draftControl = require('./nodes/draftControl')
+const createProdControlNodeFields = require('./nodes/createProdControlNodeFields')
 const createSlugField = require('./nodes/createSlugField')
 const createCoverField = require('./nodes/createCoverField')
 const createCollectionFieldByParentSourceInstanceName = require('./nodes/createCollectionField')
@@ -19,7 +19,7 @@ const onCreateNode = ({ node, actions, getNode }) => {
     createSlugField(creatorArgs)
     createCoverField(creatorArgs)
     createCategoriesField(creatorArgs)
-    draftControl(creatorArgs)
+    createProdControlNodeFields(creatorArgs)
   }
 }
 

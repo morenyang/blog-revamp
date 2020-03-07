@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Group } from '@vx/group'
 import { LinePath } from '@vx/shape'
 import { curveMonotoneX } from '@vx/curve'
@@ -6,9 +6,8 @@ import { genDateValue } from '@vx/mock-data'
 import { scaleTime, scaleLinear } from '@vx/scale'
 import { LinearGradient } from '@vx/gradient'
 import { extent, max } from 'd3-array'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 import { randomGradientColor } from '../../state/actions/color'
+import { ThemeContext } from '../framework/ThemeProvider'
 
 function genLines(num) {
   return new Array(num).fill(1).map(() => {
@@ -25,13 +24,10 @@ const data = series.reduce((rec, d) => {
 const x = d => d.date
 const y = d => d.value
 
-const HomePageBannerGallery = ({
-  width,
-  height,
-  isGradient,
-  gradient,
-  randomGradientColor: randomGradient,
-}) => {
+const HomePageBannerGallery = ({ width, height }) => {
+  const { dispatch, isGradient, gradient } = useContext(ThemeContext)
+  const randomGradient = () => dispatch(randomGradientColor())
+
   // bounds
   const xMax = width
   const yMax = height / 6
@@ -75,18 +71,4 @@ const HomePageBannerGallery = ({
   )
 }
 
-const mapStateToProps = ({ color }) => ({
-  isGradient: color.isGradient,
-  gradient: color.gradient,
-})
-
-const mapDispatchToProps = dispatch => {
-  return {
-    randomGradientColor: bindActionCreators(randomGradientColor, dispatch),
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(HomePageBannerGallery)
+export default HomePageBannerGallery

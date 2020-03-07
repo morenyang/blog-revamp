@@ -10,7 +10,11 @@ const RecentArticles = () => {
       allMarkdownRemark(
         limit: 2
         filter: {
-          fields: { collection: { eq: "article" }, released: { ne: false } }
+          fields: {
+            collection: { eq: "article" }
+            released: { ne: false }
+            shadow: { ne: true }
+          }
         }
         sort: { order: DESC, fields: [frontmatter___date] }
       ) {

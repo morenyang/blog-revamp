@@ -30,6 +30,11 @@ pre[class*='language-'] {
 
 .gatsby-highlight {
   .token {
+    &.punctuation,
+    &.script {
+      color: #24292e;
+    }
+
     &.comment,
     &.prolog,
     &.doctype,
@@ -49,7 +54,8 @@ pre[class*='language-'] {
 
     &.keyword,
     &.operator,
-    &.script > &.script-punctuation {
+    &.script > &.script-punctuation,
+    &.annotation {
       color: #d73a49;
     }
 
@@ -71,11 +77,6 @@ pre[class*='language-'] {
     &.tag,
     &.property {
       color: #22863a;
-    }
-
-    &.punctuation,
-    &.script {
-      color: #24292e;
     }
 
     &.important,
