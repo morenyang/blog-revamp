@@ -8,7 +8,15 @@ const postPerPage = siteConfig.postPerPage || 60
 const getCategoriesAndCounts = async graphql => {
   const categoriesAndCounts = await graphql(`
     {
-      allMarkdownRemark(filter: { fields: { collection: { eq: "article" } } }) {
+      allMarkdownRemark(
+        filter: {
+          fields: {
+            collection: { eq: "article" }
+            released: { ne: false }
+            shadow: { ne: true }
+          }
+        }
+      ) {
         group(field: fields___categories___category) {
           fieldValue
           totalCount
