@@ -3,13 +3,13 @@ let createCategoriesField = require('./nodes/createCategoriesField')
 let createCollectionField = require('./nodes/createCollectionField')
 let createCoverField = require('./nodes/createCoverField')
 let createSlugField = require('./nodes/createSlugField')
-let draftControl = require('./nodes/draftControl')
+let createProdControlNodeFields = require('./nodes/createProdControlNodeFields')
 
 jest.mock('./nodes/createCategoriesField.js')
 jest.mock('./nodes/createCollectionField')
 jest.mock('./nodes/createCoverField')
 jest.mock('./nodes/createSlugField')
-jest.mock('./nodes/draftControl')
+jest.mock('./nodes/createProdControlNodeFields')
 
 describe('Test onCreateNode', () => {
   let getNode
@@ -38,7 +38,7 @@ describe('Test onCreateNode', () => {
       expect(createCollectionField).toHaveBeenCalledTimes(1)
       expect(createCoverField).toHaveBeenCalledTimes(1)
       expect(createSlugField).toHaveBeenCalledTimes(1)
-      expect(draftControl).toHaveBeenCalledTimes(1)
+      expect(createProdControlNodeFields).toHaveBeenCalledTimes(1)
     })
 
     it('should call correct functions in onCreateNode given node with internal.type is not MarkdownRemark', () => {
@@ -52,7 +52,7 @@ describe('Test onCreateNode', () => {
       expect(createCollectionField).not.toHaveBeenCalled()
       expect(createCoverField).not.toHaveBeenCalled()
       expect(createSlugField).not.toHaveBeenCalled()
-      expect(draftControl).not.toHaveBeenCalled()
+      expect(createProdControlNodeFields).not.toHaveBeenCalled()
     })
   })
 })

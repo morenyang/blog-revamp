@@ -1,4 +1,6 @@
-const draftControl = require('./draftControl')
+const createProdControlNodeFields = require('./createProdControlNodeFields')
+
+const draftControl = createProdControlNodeFields.draftControl
 
 describe('Test draft control', () => {
   let createNodeField

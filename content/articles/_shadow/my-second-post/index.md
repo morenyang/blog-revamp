@@ -5,6 +5,7 @@ categories:
   - event
   - gatsby
 draft: true
+shadow: true
 ---
 
 Wow! I love blogging so much already.
