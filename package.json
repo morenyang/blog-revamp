@@ -93,7 +93,7 @@
     "serve": "yarn run clean && gatsby serve",
     "test": "jest --config jest/jest.config.js",
     "test:coverage": "yarn run clean && cross-env CI=true jest --config jest/jest.config.js --coverage",
-    "now-build": "yarn run build",
+    "now-build": "node scripts/env && yarn run build",
     "new": "node scripts/new",
     "pub": "node scripts/publish"
   },
