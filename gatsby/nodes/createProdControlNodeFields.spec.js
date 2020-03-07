@@ -1,6 +1,7 @@
 const createProdControlNodeFields = require('./createProdControlNodeFields')
 
 const draftControl = createProdControlNodeFields.draftControl
+const shadowControl = createProdControlNodeFields.shadowControl
 
 describe('Test draft control', () => {
   let createNodeField
@@ -128,6 +129,70 @@ describe('Test draft control', () => {
         node,
         name: 'released',
         value: true,
+      })
+    }
+  )
+})
+
+describe('Test shadow control', () => {
+  let createNodeField
+  beforeEach(() => {
+    createNodeField = jest.fn()
+  })
+  it(
+    'should call createNodeField with name shadow and value true ' +
+      'given frontmatter shadow is true',
+    () => {
+      const node = {
+        frontmatter: {
+          shadow: true,
+        },
+      }
+
+      shadowControl({ node, createNodeField })
+      expect(createNodeField).toHaveBeenCalledTimes(1)
+      expect(createNodeField).toHaveBeenCalledWith({
+        node,
+        name: 'shadow',
+        value: true,
+      })
+    }
+  )
+
+  it(
+    'should call createNodeField with name shadow and value false ' +
+      'given frontmatter shadow is not true',
+    () => {
+      const node = {
+        frontmatter: {
+          shadow: false,
+        },
+      }
+
+      shadowControl({ node, createNodeField })
+      expect(createNodeField).toHaveBeenCalledTimes(1)
+      expect(createNodeField).toHaveBeenCalledWith({
+        node,
+        name: 'shadow',
+        value: false,
+      })
+    }
+  )
+
+  it(
+    'should call createNodeField with name shadow and value false ' +
+      'given frontmatter shadow is undefined',
+    () => {
+      const node = {
+        frontmatter: {},
+      }
+
+      shadowControl({ node, createNodeField })
+      expect(createNodeField).toHaveBeenCalledTimes(1)
+      expect(createNodeField).toHaveBeenCalledWith({
+        node,
+        name: 'shadow',
+        value: false,
       })
     }
   )
