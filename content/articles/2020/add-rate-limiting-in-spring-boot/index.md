@@ -205,8 +205,9 @@ public class CaffeineCacheConfiguration {
       config
     );
     apiTokenCacheConfiguration.setExpiryPolicyFactory(
-      FactoryBuilder.factoryOf(// 设置过期策略
-        new AccessedExpiryPolicy(new Duration(TimeUnit.MINUTES, 10)))
+      FactoryBuilder.factoryOf( // 设置过期策略
+        new AccessedExpiryPolicy(new Duration(TimeUnit.MINUTES, 10))
+      )
     );
     apiTokenCacheConfiguration.setStoreByValue(false);
     cacheManager.createCache("cacheName", apiTokenCacheConfiguration);
