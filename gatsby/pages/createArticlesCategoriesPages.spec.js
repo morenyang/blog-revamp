@@ -11,7 +11,6 @@ jest.mock('../../site-config')
 describe('Test createArticlePages', () => {
   it('should call createPage with correct arguments', async () => {
     routerHelper.getCategoryPathByPage.mockReturnValue('TEST_PATH')
-    siteConfig.postPerPage = 10
 
     path.resolve.mockReturnValue('TEST_FILE_PATH')
 
@@ -56,7 +55,7 @@ describe('Test createArticlePages', () => {
         hasNext: false,
         hasPrev: false,
         nextPath: 'TEST_PATH',
-        pageSize: 30,
+        pageSize: siteConfig.postPerPage,
         postsOffset: 0,
         prevPath: 'TEST_PATH',
         totalPages: 1,
@@ -72,7 +71,7 @@ describe('Test createArticlePages', () => {
         hasNext: false,
         hasPrev: false,
         nextPath: 'TEST_PATH',
-        pageSize: 30,
+        pageSize: siteConfig.postPerPage,
         postsOffset: 0,
         prevPath: 'TEST_PATH',
         totalPages: 1,

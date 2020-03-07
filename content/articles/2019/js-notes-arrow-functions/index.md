@@ -2,6 +2,8 @@
 title: 'JS学习笔记 : 箭头函数'
 date: '2019-10-06'
 description: 'What about this?'
+categories:
+  - Javascript
 ---
 
 箭头函数`=>`是 ES6 引入的新特性。但说到底，讨论箭头函数，很多时候实质上是在讨论`this`。

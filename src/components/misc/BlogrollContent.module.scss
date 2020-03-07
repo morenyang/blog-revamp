@@ -1,0 +1,12 @@
+@import '../../scss/variables';
+
+.blogroll {
+  margin-top: $gutter;
+  margin-bottom: $gutter;
+  font-size: 20px;
+  color: $secondary;
+
+  li {
+    margin-bottom: $gutter-small / 2;
+  }
+}

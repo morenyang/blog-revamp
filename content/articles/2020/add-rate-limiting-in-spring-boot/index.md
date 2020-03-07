@@ -5,15 +5,15 @@ categories:
   - Full Stack
 ---
 
-事情是这样的，为了防止我们的应用因为 downstream 的应用出现无法预测的问题而击溃，需要在这个应用上对 API 的访问量进行限制。
+事情是这样的，为了防止我们的应用因为 downstream 的应用出现无法预测的问题而被击溃，需要对 API 的访问量进行限制。
 
-在这个 case 中我们选择使用[Bucket4j](https://github.com/vladimir-bukhtoyarov/bucket4j)来实现。
+这个 case 中我们选择使用 [Bucket4j](https://github.com/vladimir-bukhtoyarov/bucket4j) 来实现。
 
 ## 令牌桶(token-bucket)算法
 
-Bucket4j 采用令牌桶的方案来进行速率限制。官方的[文档](https://github.com/vladimir-bukhtoyarov/bucket4j/blob/master/doc-pages/token-bucket-brief-overview.md)和[Wikipedia](https://en.wikipedia.org/wiki/Token_bucket)都有详细的介绍。
+Bucket4j 采用令牌桶的方案来进行速率限制。官方的[文档](https://github.com/vladimir-bukhtoyarov/bucket4j/blob/master/doc-pages/token-bucket-brief-overview.md)和 [Wikipedia](https://en.wikipedia.org/wiki/Token_bucket)都有详细的介绍。
 
-它大致是这么实现的：
+他的思路大致是这样的：
 
 - 首先有一个用来装令牌的桶，它的容积是有限的，例如`20个`。
 - 以一个恒定的速率向桶中注入令牌，例如`每秒10个`。当桶满的时候则扔掉那些无法注入的令牌。
@@ -26,7 +26,7 @@ Bucket4j 采用令牌桶的方案来进行速率限制。官方的[文档](https
 
 参考[官方示例](https://github.com/vladimir-bukhtoyarov/bucket4j/blob/master/doc-pages/basic-usage.md#example-3---limiting-the-rate-of-access-to-rest-api)，添加一个 filter 就可以实现对请求速率的拦截和过滤了。
 
-这里选择实现`javax.servlet.Filter`，还是继承`GenericFilterBean`或`OncePerRequestFilter`，并不重要，实际是实现都是一样的。
+这里选择实现 `javax.servlet.Filter` ，还是继承 `GenericFilterBean` 或 `OncePerRequestFilter` ，并不重要，实际是实现都是一样的。
 
 ```java
 public class ThrottlingFilter extends OncePerRequestFilter {
@@ -121,11 +121,11 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 ## 缓存
 
-上文的示例中使用了[Caffeine](https://github.com/ben-manes/caffeine)和它的[jCache Adapter](https://github.com/ben-manes/caffeine/wiki/JCache) 作为缓存。
+上文的示例中使用了 [Caffeine](https://github.com/ben-manes/caffeine) 和它的 [jCache Adapter](https://github.com/ben-manes/caffeine/wiki/JCache) 作为缓存。
 
-在介绍 Caffeine 的配置之前，先介绍更简便的方案——可以直接使用一个`ConcurrentHashMap`来存放这些 id-bucket 的组合（当然这么做没法快速的实现过期的策略）。或者，使用类似的缓存方案，比如说[`GuavaCache`](https://github.com/google/guava/wiki/CachesExplained)。
+在介绍 Caffeine 的配置之前，先介绍更简便的方案——可以直接使用一个 `ConcurrentHashMap` 来存放这些 id-bucket 的组合（当然这么做没法快速的实现过期的策略）。或者，使用类似的缓存方案，比如说 [`GuavaCache`](https://github.com/google/guava/wiki/CachesExplained) 。
 
-实现一个简单的`BucketCache`类：
+实现一个简单的 `BucketCache` 类：
 
 ```java
 public class BucketCache<K extends Serializable> {
@@ -157,7 +157,7 @@ public class BucketCache<K extends Serializable> {
 }
 ```
 
-在上述 filter 中将原有的`cache`和`proxy`替换为自己实现的 cache：
+在上述 filter 中将原有的 `cache` 和 `proxy` 替换为自己实现的 cache：
 
 ```java
 public class ThrottlingFilter extends OncePerRequestFilter {
@@ -185,7 +185,7 @@ public class ThrottlingFilter extends OncePerRequestFilter {
 
 使用 Caffeine 作为缓存的配置也并不复杂，可以大致参考[官方示例](https://github.com/ben-manes/caffeine/blob/master/jcache/src/test/java/com/github/benmanes/caffeine/jcache/JCacheGuiceTest.java)。
 
-新建一个`CaffeineCacheConfiguration`文件并生成 javax.cache.CacheManager 的 bean ：
+新建一个 `CaffeineCacheConfiguration` 文件并生成 `javax.cache.CacheManager` 的 bean ：
 
 ```java
 @Configuration

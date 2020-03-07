@@ -16,6 +16,7 @@
   @include media-breakpoint-down(sm) {
     padding: $gutter $gutter-small;
     margin: 0 $gutter-small;
+    flex-wrap: wrap;
   }
 }
 
@@ -24,8 +25,25 @@
   margin-top: $gutter-small;
   margin-bottom: $gutter-small;
   font-weight: 300;
-}
-
-.footerCopyright {
   color: $secondary;
+  a {
+    color: $secondary;
+    &:hover,
+    &:focus &:active {
+      color: $primary;
+    }
+  }
+  & + .footerLinks {
+    margin-left: $gutter;
+  }
+
+  @include media-breakpoint-down(sm) {
+    flex: 1 0 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+    & + .footerLinks {
+      margin-left: 0;
+      line-height: 32px;
+    }
+  }
 }

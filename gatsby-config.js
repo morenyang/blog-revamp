@@ -2,10 +2,7 @@ const siteConfig = require('./site-config')
 
 module.exports = {
   siteMetadata: {
-    title: siteConfig.title,
-    description: siteConfig.description,
-    author: siteConfig.author,
-    headerLinks: siteConfig.headerLinks,
+    ...siteConfig,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
