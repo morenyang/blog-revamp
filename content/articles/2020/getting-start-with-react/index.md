@@ -6,11 +6,11 @@ categories:
   - Javascript
 ---
 
-React is one of the most popular JavaScript libraries for building UI. I was arranged to share React with other team few weeks ago. Now I will the sildes for the sharing with you.
+React is one of the most popular JavaScript libraries for building UI. I was arranged to share React with other team few weeks ago. Now I will share the sildes for the sharing with you.
 
 You can read the slides below, or download the PDF at the end of the article.
 
-Should you have any questions about this article, please feel free to ask me.
+Should you have any questions about this article, please feel free to discus with me.
 
 ![](./images/Slide1.PNG)
 ![](./images/Slide2.PNG)
