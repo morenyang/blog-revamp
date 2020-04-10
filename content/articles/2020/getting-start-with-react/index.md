@@ -10,7 +10,7 @@ React is one of the most popular JavaScript libraries for building UI. I was arr
 
 You can read the slides below, or download the PDF at the end of the article.
 
-Should you have any questions about this article, please feel free to discus with me.
+Should you have any questions about this article, please feel free to discuss with me.
 
 ![](./images/Slide1.PNG)
 ![](./images/Slide2.PNG)
