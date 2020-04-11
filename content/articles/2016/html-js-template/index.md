@@ -38,7 +38,7 @@ var data = {
 通常我们可能会这么写：
 
 ```js
-var printer = function(data) {
+var printer = function (data) {
   var content =
     '<div class="user-info-card" id="uic_' +
     data.userid +
@@ -59,12 +59,12 @@ var printer = function(data) {
   $('.user-info-list').append(content)
 }
 
-var sexPrinter = function(index) {
+var sexPrinter = function (index) {
   var sexList = ['', 'Male', 'Female']
   return index == 1 || index == 2 ? sexList[index] : 'Undefined'
 }
 
-var cityPrinter = function(cityCode) {
+var cityPrinter = function (cityCode) {
   //...
   return '...'
 }
@@ -109,16 +109,16 @@ document.getElementsByClassName('user-info-list').append(content)
 我们也可以自定义方法来处理内容，这时候如果我们想要使用 Ajax 来二次处理数据就变得十分方便。例如，我们通过 Ajax 方法来通过邮编获取城市名：
 
 ```javascript
-var getCityName = function(htmlContent, cityCode, callBack) {
+var getCityName = function (htmlContent, cityCode, callBack) {
   var url = '/queryCity?id=' + cityCode
-  $.getJSON(url, function(response) {
+  $.getJSON(url, function (response) {
     htmlContent = htmlContent.replace(/%city%/, response.cityName)
     callBack(htmlContent)
   })
 }
 
 var template = document.getElementById('template_uic').innerHTML
-var content = getCityName(template, data.city, function(content) {
+var content = getCityName(template, data.city, function (content) {
   // insert
   document.getElementsByClassName('user-info-list').append(content)
 })

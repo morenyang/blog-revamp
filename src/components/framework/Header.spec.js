@@ -29,32 +29,10 @@ describe('<Header />', () => {
     expect(items).toHaveLength(1)
     expect(items.find(Link)).toHaveLength(2)
 
-    expect(
-      items
-        .find(Link)
-        .at(0)
-        .prop('to')
-    ).toBe('PATH')
-    expect(
-      items
-        .find(Link)
-        .at(0)
-        .render()
-        .text()
-    ).toBe('ITEM')
+    expect(items.find(Link).at(0).prop('to')).toBe('PATH')
+    expect(items.find(Link).at(0).render().text()).toBe('ITEM')
 
-    expect(
-      items
-        .find(Link)
-        .at(1)
-        .prop('to')
-    ).toBe('PATH2')
-    expect(
-      items
-        .find(Link)
-        .at(1)
-        .render()
-        .text()
-    ).toBe('ITEM2')
+    expect(items.find(Link).at(1).prop('to')).toBe('PATH2')
+    expect(items.find(Link).at(1).render().text()).toBe('ITEM2')
   })
 })

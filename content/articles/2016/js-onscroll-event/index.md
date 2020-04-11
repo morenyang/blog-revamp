@@ -11,7 +11,7 @@ foreword: 利用网页滚动条事件在网页中添加返回顶部的小标签
 首先我们要先明白如何检测网页的滚动事件。这里有一段简单的代码可以帮助你判断和输出网页的滚动情况:
 
 ```js
-window.onscroll = function() {
+window.onscroll = function () {
   console.log(window.scrollY)
 }
 ```
@@ -21,7 +21,7 @@ window.onscroll = function() {
 _当然如果你习惯使用 jQuery 的话也可以这么写_
 
 ```js
-$(window).scroll(function() {
+$(window).scroll(function () {
   console.log($(this).scrollTop())
 
   // 以上输出代码也可以换成下面这句，效果一样
@@ -56,7 +56,7 @@ $(window).scroll(function() {
 
 ```html
 <script type="text/javascript">
-  window.onscroll = function() {
+  window.onscroll = function () {
     var scroll_top = document.getElementById('scroll_top')
     if (window.scrollY > 300) {
       scroll_top.style.display = 'inline'
@@ -90,7 +90,7 @@ $(window).scroll(function() {
     </div>
 
     <script type="text/javascript">
-      window.onscroll = function() {
+      window.onscroll = function () {
         var scroll_top = document.getElementById('scroll_top')
         if (window.scrollY > 300) {
           scroll_top.style.display = 'inline'

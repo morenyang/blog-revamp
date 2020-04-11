@@ -18,7 +18,7 @@ categories:
 const arr = [1, 2, 3]
 
 // ES5
-const twiceArr = arr.map(function(i) {
+const twiceArr = arr.map(function (i) {
   return i * 2
 })
 

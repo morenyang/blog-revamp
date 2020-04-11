@@ -390,10 +390,7 @@ const vm = new MVVM({
   },
   methods: {
     reverse() {
-      this.msg = this.msg
-        .split('')
-        .reverse()
-        .join('')
+      this.msg = this.msg.split('').reverse().join('')
     },
   },
 })

@@ -65,7 +65,7 @@ book.read // true
 
 ```js
 function readable(isReadable) {
-  return function(target) {
+  return function (target) {
     target.readable = isReadable
   }
 }
@@ -95,7 +95,7 @@ book.readable // undefined
 ```js
 function readable(target) {
   target.prototype.read = true
-  target.prototype.readName = function() {
+  target.prototype.readName = function () {
     console.log(this.name)
   }
 }
@@ -182,7 +182,7 @@ export default Comp
 
 ```js
 function authRequire(authName) {
-  return function(TargetClass) {
+  return function (TargetClass) {
     return class extends TargetClass {
       render() {
         if (userPermissions.has(authName)) {
