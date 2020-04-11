@@ -97,6 +97,15 @@ module.exports = {
       resolve: `gatsby-plugin-styled-components`,
       options: {},
     },
+    {
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        // Setting a color is optional.
+        color: `none`,
+        // Disable the loading spinner.
+        showSpinner: false,
+      },
+    },
     siteConfig.googleAnalyticsTrackingId && {
       resolve: `gatsby-plugin-gtag`,
       options: {
