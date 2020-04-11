@@ -43,7 +43,7 @@ JavaScript 中的强制类型转换总是返回**标量基本类型值**，例�
 '' + [1, 2, 3] // "1,2,3"
 '' +
   {
-    toString: function() {
+    toString: function () {
       return '1'
     },
   } // "1"
@@ -72,12 +72,12 @@ JSON.stringify(true) // "true"
 
 ```js
 JSON.stringify(undefined) // undefined
-JSON.stringify(function() {}) // undefined
+JSON.stringify(function () {}) // undefined
 
-JSON.stringfiy([1, undefined, function() {}, 4]) // "[1,null,null,4]"
-JSON.stringify({ a: 1, b: function() {}, c: undefined }) // "{"a":1}"
+JSON.stringfiy([1, undefined, function () {}, 4]) // "[1,null,null,4]"
+JSON.stringify({ a: 1, b: function () {}, c: undefined }) // "{"a":1}"
 JSON.stringify({
-  toString: function() {
+  toString: function () {
     return '1'
   },
 }) // "{}"
@@ -95,21 +95,21 @@ var a = {}
 var b = { a: a }
 a.b = b
 
-b.toJSON = function() {
+b.toJSON = function () {
   return {}
 }
 
 JSON.stringify(a) // "{"b":{}}"
 
-var foo = function() {}
-foo.toJSON = function() {
+var foo = function () {}
+foo.toJSON = function () {
   return 123
 }
 JSON.stringify(foo) // "123"
 
 var bar = {
   a: undefined,
-  toJSON: function() {
+  toJSON: function () {
     return { a: null }
   },
 }
@@ -138,12 +138,12 @@ ToNumber 相比 ToString 来说就简单很多。
 
 ```js
 var a = {
-  valueOf: function() {
+  valueOf: function () {
     return '1'
   },
 }
 var b = {
-  toString: function() {
+  toString: function () {
     return '2'
   },
 }
@@ -152,20 +152,20 @@ Number(b) // 2
 
 var c = [1, 2, 3]
 Number(c) // NaN
-c.valueOf = function() {
+c.valueOf = function () {
   return 1
 }
 Number(c) // 1
 
 var d = []
 Number(d) // 0
-d.toString = function() {
+d.toString = function () {
   return 1
 }
 Number(d) // 1
 
 var e = [1, 2, 3]
-e.toString = function() {
+e.toString = function () {
   return this.join('') // 123
 }
 Number(e) //123

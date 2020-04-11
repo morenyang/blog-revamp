@@ -1,7 +1,7 @@
 const _ = require('lodash')
 
 function getPathByPageFactory(prefix) {
-  return function(page = 0) {
+  return function (page = 0) {
     let pageString = ``
     if (page) {
       pageString = page + 1
@@ -11,7 +11,7 @@ function getPathByPageFactory(prefix) {
 }
 
 function getPathBySlugFactory(prefix) {
-  return function(slug) {
+  return function (slug) {
     return `/${prefix}/${slug}`.replace(/\/\//g, '/')
   }
 }

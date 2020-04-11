@@ -70,12 +70,9 @@ describe('<ArtileCard />', () => {
     })
 
     it('should render correct date', () => {
-      expect(
-        wrapper
-          .find(`.${styles.meta}`)
-          .childAt(0)
-          .text()
-      ).toBe(`January 01, 2019`)
+      expect(wrapper.find(`.${styles.meta}`).childAt(0).text()).toBe(
+        `January 01, 2019`
+      )
     })
 
     it('should render correct categories', () => {
@@ -83,18 +80,12 @@ describe('<ArtileCard />', () => {
       expect(categoriesWrapper).toHaveLength(1)
       expect(categoriesWrapper.find(Link)).toHaveLength(2)
 
-      expect(
-        categoriesWrapper
-          .find(Link)
-          .at(0)
-          .prop('to')
-      ).toBe('TEST_CATEGORY_LINK')
-      expect(
-        categoriesWrapper
-          .find(Link)
-          .at(1)
-          .prop('to')
-      ).toBe('TEST_CATEGORY_LINK_2')
+      expect(categoriesWrapper.find(Link).at(0).prop('to')).toBe(
+        'TEST_CATEGORY_LINK'
+      )
+      expect(categoriesWrapper.find(Link).at(1).prop('to')).toBe(
+        'TEST_CATEGORY_LINK_2'
+      )
 
       expect(startCase).toHaveBeenCalledTimes(2)
       expect(startCase.mock.calls[0][0]).toBe('TEST_CATEGORY')

@@ -29,7 +29,7 @@ $ npm install gulp --save-dev
 ```js
 var gulp = require('gulp')
 
-gulp.task('default', function() {
+gulp.task('default', function () {
   console.log('Hello Gulp! ')
 })
 ```
@@ -52,7 +52,7 @@ $ npm install gulp-sass --save-dev
 var gulp = require('gulp'),
   sass = require('gulp-sass')
 
-gulp.task('sass', function() {
+gulp.task('sass', function () {
   return gulp
     .src('./sass/**/*.scss')
     .pipe(sass().on('error', sass.logError))
@@ -65,7 +65,7 @@ gulp.task('sass', function() {
 如果要使用 Gulp 自带的文件监视器，可以再后面加上：
 
 ```js
-gulp.task('sass:watch', function() {
+gulp.task('sass:watch', function () {
   gulp.watch('./sass/**/*.scss', ['sass'])
 })
 ```
@@ -87,7 +87,7 @@ const gulp = require('gulp'),
   sass = require('gulp-sass'),
   rename = require('gulp-rename')
 
-gulp.task('sass', function() {
+gulp.task('sass', function () {
   console.log('sass-watch')
   return gulp
     .src('./app.sass')

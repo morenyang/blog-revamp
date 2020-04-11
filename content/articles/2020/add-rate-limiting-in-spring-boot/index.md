@@ -45,7 +45,8 @@ public class ThrottlingFilter extends OncePerRequestFilter {
   );
 
   // 令牌配置
-  private static final BucketConfiguration bucketConfiguration = Bucket4j.configurationBuilder()
+  private static final BucketConfiguration bucketConfiguration = Bucket4j
+    .configurationBuilder()
     .addLimit(Bandwidth.classic(OVERDRAFT, refill))
     .build();
 
@@ -133,9 +134,10 @@ public class BucketCache<K extends Serializable> {
 
   public BucketCache(BucketConfiguration configuration) {
     bucketCache =
-      CacheBuilder.newBuilder()
+      CacheBuilder
+        .newBuilder()
         // 缓存过期策略
-      .expireAfterAccess(30, TimeUnit.MINUTES)
+        .expireAfterAccess(30, TimeUnit.MINUTES)
         .build(
           new CacheLoader<K, Bucket>() {
 

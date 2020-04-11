@@ -34,7 +34,7 @@ OK，以上的内容大家应该都是认同的了。但是我们知道，对于
 
 ```js
 function printNameFactory(name) {
-  return function() {
+  return function () {
     console.log(`My Name is ${name}`)
   }
 }
@@ -167,7 +167,7 @@ printLater('Miao') // 5秒后打印 Miao
 
 ```js
 for (var i = 1; i <= 10; i++) {
-  setTimeout(function() {
+  setTimeout(function () {
     console.log(i)
   }, i * 1000)
 }
@@ -179,7 +179,7 @@ for (var i = 1; i <= 10; i++) {
 
 ```js
 for (var i = 1; i <= 10; i++) {
-  ;(function() {
+  ;(function () {
     var j = i
     setTimeout(function timer() {
       console.log(j)
@@ -189,7 +189,7 @@ for (var i = 1; i <= 10; i++) {
 
 // 改进一下
 for (var i = 1; i <= 10; i++) {
-  ;(function(j) {
+  ;(function (j) {
     setTimeout(function timer() {
       console.log(j)
     }, j * 1000)

@@ -145,10 +145,10 @@ var add
 
 function foo() {
   var a = 1
-  add = function() {
+  add = function () {
     a++
   }
-  return function() {
+  return function () {
     // 为了方便我们把这个匿名函数叫做baz
     console.log(a)
   }
@@ -183,8 +183,8 @@ undefined
 // example 6
 var object = {
   name: 'My Object',
-  getNameFunc: function() {
-    return function() {
+  getNameFunc: function () {
+    return function () {
       // 暂且称这个匿名函数为foo吧
       // console.log(this); // 这行代码帮助看到当前匿名函数的状态
       return name
@@ -226,8 +226,8 @@ for (var i = 1; i <= 5; i++) {
 
 ```js
 for (var i = 1; i <= 5; i++) {
-  ;(function() {
-    setTimeout(function() {
+  ;(function () {
+    setTimeout(function () {
       console.log(i)
     }, i * 500)
   })()
@@ -238,9 +238,9 @@ for (var i = 1; i <= 5; i++) {
 
 ```js
 for (var i = 1; i <= 5; i++) {
-  ;(function() {
+  ;(function () {
     var j = i
-    setTimeout(function() {
+    setTimeout(function () {
       console.log(j)
     }, j * 500)
   })()
@@ -252,8 +252,8 @@ for (var i = 1; i <= 5; i++) {
 
 ```js
 for (var i = 1; i <= 5; i++) {
-  ;(function(i) {
-    setTimeout(function() {
+  ;(function (i) {
+    setTimeout(function () {
       console.log(i)
     }, i * 500)
   })(i)
@@ -269,7 +269,7 @@ for (var i = 1; i <= 5; i++) {
 ```js
 for (var i = 1; i <= 5; i++) {
   let j = i
-  setTimeout(function() {
+  setTimeout(function () {
     console.log(j)
   }, j * 500)
 }
@@ -279,7 +279,7 @@ for (var i = 1; i <= 5; i++) {
 
 ```js
 for (let i = 1; i <= 5; i++) {
-  setTimeout(function() {
+  setTimeout(function () {
     console.log(i)
   }, i * 500)
 }

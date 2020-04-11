@@ -34,7 +34,7 @@ const CoverImage = ({ children, fluid, aspectRatio, className }) => {
     const resizeObserver = new ResizeObserver(handleResize)
     resizeObserver.observe(el)
 
-    return function() {
+    return function () {
       resizeObserver.disconnect()
     }
   })
@@ -84,7 +84,7 @@ export const loadResizeObserverPolyfills = WrappedComponent => {
     return Promise.all(polyfills)
   }
 
-  return function(props) {
+  return function (props) {
     const [polyfillsLoaded, setLoaded] = useState(supportsResizeObserver())
     useEffect(() => {
       if (!polyfillsLoaded) {

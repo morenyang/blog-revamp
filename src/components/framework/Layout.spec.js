@@ -33,12 +33,7 @@ describe('<Layout />', () => {
     expect(useStaticQuery).toHaveBeenCalledTimes(1)
     expect(useStaticQuery).toHaveBeenCalledWith('TEST_GRAPHQL')
 
-    expect(
-      wrapper
-        .find('div')
-        .at(1)
-        .hasClass('site-main')
-    ).toBe(true)
+    expect(wrapper.find('div').at(1).hasClass('site-main')).toBe(true)
 
     expect(wrapper.find('div.unique')).toHaveLength(1)
 
@@ -60,11 +55,6 @@ describe('<Layout />', () => {
     const className = 'CLASS_NAME'
     const wrapper = shallow(<Layout className={className}>{children}</Layout>)
 
-    expect(
-      wrapper
-        .find('div')
-        .at(1)
-        .hasClass(className)
-    ).toBe(true)
+    expect(wrapper.find('div').at(1).hasClass(className)).toBe(true)
   })
 })

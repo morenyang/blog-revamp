@@ -13,7 +13,7 @@ categories:
 ```js
 console.log(a) // A
 var a = 1
-var setA = function() {
+var setA = function () {
   a = 2
 }
 function setA() {
@@ -161,7 +161,7 @@ function setA() {
   a = 2
 }
 
-var setA = function() {
+var setA = function () {
   a = 3
 }
 console.log(a) // 1
@@ -178,7 +178,7 @@ function setA() {
 var a
 console.log(a)
 a = 1
-var setA = function() {
+var setA = function () {
   a = 3
 }
 console.log(a)

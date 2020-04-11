@@ -14,26 +14,26 @@ date: 2019-09-20
 ```java
 class Foo {
   Bar bar = new Bar();
-// getter and setter
-// ...
+  // getter and setter
+  // ...
 }
 
 class Bar {
   Buz buz = new Buz();
-// getter and setter
-// ...
+  // getter and setter
+  // ...
 }
 
 class Buz {
   Cool cool = new Cool();
-// getter and setter
-// ...
+  // getter and setter
+  // ...
 }
 
 class Cool {
   String str;
-// getter and setter
-// ...
+  // getter and setter
+  // ...
 }
 ```
 
@@ -63,7 +63,8 @@ class Foo {
 class Foo {
 
   String getStr(Foo foo) {
-    return Optional.of(foo)
+    return Optional
+      .of(foo)
       .map(Foo::getBar)
       .map(Bar::getBuz)
       .map(Buz::getCool)

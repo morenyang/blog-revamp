@@ -17,22 +17,12 @@ describe('<ArticleList />', () => {
 
     const wrapper = shallow(<ArticleList {...props} />)
     expect(wrapper.find(ArticleCard)).toHaveLength(2)
-    expect(
-      wrapper
-        .find(ArticleCard)
-        .at(0)
-        .props()
-    ).toEqual({
+    expect(wrapper.find(ArticleCard).at(0).props()).toEqual({
       article: { id: 1 },
       grids: 2,
     })
 
-    expect(
-      wrapper
-        .find(ArticleCard)
-        .at(1)
-        .props()
-    ).toEqual({
+    expect(wrapper.find(ArticleCard).at(1).props()).toEqual({
       article: { id: 2 },
       grids: 2,
     })
@@ -42,11 +32,6 @@ describe('<ArticleList />', () => {
     const props = { articles: [{ id: 1 }] }
     const wrapper = shallow(<ArticleList {...props} />)
     expect(wrapper.find(ArticleCard)).toHaveLength(1)
-    expect(
-      wrapper
-        .find(ArticleCard)
-        .at(0)
-        .prop('grids')
-    ).toBe(3)
+    expect(wrapper.find(ArticleCard).at(0).prop('grids')).toBe(3)
   })
 })

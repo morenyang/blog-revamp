@@ -35,12 +35,9 @@ describe('<NotFountPage />', () => {
     expect(wrapper.find('h1').text()).toBe('Oops!')
     expect(wrapper.find('h2').text()).toBe('404 Page Not Found')
     expect(wrapper.find(gatsby.Link).prop('to')).toBe('/')
-    expect(
-      wrapper
-        .find(gatsby.Link)
-        .render()
-        .text()
-    ).toEqual('View Homepage  ›')
+    expect(wrapper.find(gatsby.Link).render().text()).toEqual(
+      'View Homepage  ›'
+    )
     expect(wrapper.find('.location').text()).toBe(' TEST_PATH_NAME')
   })
 })
