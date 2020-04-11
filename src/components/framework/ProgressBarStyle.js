@@ -6,13 +6,13 @@ const ProgressBarStyle = createGlobalStyle`
   #nprogress {
     .peg{
       box-shadow: 0 0 10px ${props => props.gradient.to}, 0 0 5px ${props =>
-  props.gradient.to};
+  props.gradient.to} !important;
     }
-
     .bar {
-    background-image: linear-gradient(45deg,${props =>
-      props.gradient.from} 50%, ${props => props.gradient.to});
-  }}
+      background-image: linear-gradient(45deg,${props =>
+        props.gradient.from} 50%, ${props => props.gradient.to});
+    }
+  }
 `
 
 const ProgressBarStyleWrapper = () => {
