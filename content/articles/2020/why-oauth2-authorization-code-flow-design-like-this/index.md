@@ -1,7 +1,6 @@
 ---
 title: 为什么授权码模式要这样设计
-date: '2020-04-19'
-draft: true
+date: '2020-04-23'
 ---
 
 授权码(Authorization Code)模式是 OAuth2 中最广泛使用的第三方应用和部分第一方应用授权的方式。
