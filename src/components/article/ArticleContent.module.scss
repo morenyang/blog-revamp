@@ -222,6 +222,11 @@
       margin-bottom: 0;
     }
   }
+
+  img[src*='.svg'] {
+    margin: $gutter 0;
+    max-width: 100%;
+  }
 }
 
 .meta {
