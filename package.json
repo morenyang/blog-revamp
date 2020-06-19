@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "author": "Moren Yang <morenyang88@gmail.com>",
   "dependencies": {
-    "@vx/curve": "^0.0.195",
+    "@vx/curve": "^0.0.197",
     "@vx/gradient": "^0.0.195",
     "@vx/group": "^0.0.195",
     "@vx/mock-data": "^0.0.195",

@@ -1990,10 +1990,18 @@
     semver "^6.3.0"
     tsutils "^3.17.1"
 
-"@vx/curve@0.0.195", "@vx/curve@^0.0.195":
+"@vx/curve@0.0.195":
   version "0.0.195"
   resolved "https://registry.npmjs.org/@vx/curve/-/curve-0.0.195.tgz#86cf9ff09f7b22a9d22130f6a4ef9a4969417fec"
   integrity sha512-fQXvd1530ou/K5v6fzH/RWy8HjXCKKScmtk9DfSdp/wkhm5u+1jkoe6r53PLAdJhUnMI6U8OsiVlaLF8nADuMw==
+  dependencies:
+    "@types/d3-shape" "^1.3.1"
+    d3-shape "^1.0.6"
+
+"@vx/curve@^0.0.197":
+  version "0.0.197"
+  resolved "https://registry.yarnpkg.com/@vx/curve/-/curve-0.0.197.tgz#4ff4c095e4e86e112a5589ebb1d0ddcddcfbdb6a"
+  integrity sha512-NI8Uop3f2eDMkuNw8q252ofask98Uce2pb5Ioav5vseqVf47GpnLpThRXXI9V9oQtFJzdiEwlGG8DyGiazqbnw==
   dependencies:
     "@types/d3-shape" "^1.3.1"
     d3-shape "^1.0.6"
