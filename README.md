@@ -24,4 +24,4 @@ If you want to see the drafts, run `yarn start:draft`.
 
 Licensed under the [MIT License](./LICENSE).
 
-Content on the [website](https://blog.yangteng.me/) is [CC-BY-NC-4.0 licensed](./LICENSE-DOCS).
+test Content on the [website](https://blog.yangteng.me/) is [CC-BY-NC-4.0 licensed](./LICENSE-DOCS).
